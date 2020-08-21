@@ -1,6 +1,6 @@
 import React from 'react';
 import './Sass/main.scss';
-import './App.css';
+// import './App.css';
 
 // Layout
 import { Navbar } from './Components/Layout/Navbar/Navbar';
