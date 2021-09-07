@@ -1,1 +1,17 @@
-@import "./styles/main.scss";
+@import "styles/abstract/media-queries";
+@import "styles/abstract/mixins";
+@import "styles/abstract/variables";
+
+@import "styles/base/base";
+@import "styles/base/elements";
+@import "styles/base/typography";
+@import "styles/base/utilities";
+
+@import "styles/components/main-sports-odds";
+@import "styles/components/sidebar-search";
+
+@import "styles/layout/footer";
+@import "styles/layout/header";
+@import "styles/layout/navigation";
+
+@import "styles/pages/home";
