@@ -11,9 +11,9 @@ function App() {
         </div>
       </header>
       <section className="section-home">
-        <aside className="sidebar-search">
-          <div className="sidebar-search__box">search-box</div>
-          <div className="sidebar-search__league">league</div>
+        <aside className="sidebar-sports">
+          <div className="sidebar-sports__favourite">Favourite</div>
+          <div className="sidebar-sports__list">Sports</div>
         </aside>
         <main className="sport-odds">
           <div className="sport-odds__title">
@@ -24,6 +24,9 @@ function App() {
             <Events />
           </div>
         </main>
+        <aside className="sidebar-search">
+          <div className="sidebar-search__box">search-box</div>
+        </aside>
       </section>
     </>
   );

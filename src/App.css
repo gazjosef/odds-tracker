@@ -61,6 +61,12 @@ body {
   padding: 3rem;
 }
 
+.sport-odds {
+  width: 80rem;
+  min-height: 80vh;
+  background-color: #4f4f4f;
+}
+
 .header {
   height: 8rem;
   width: 100%;
@@ -79,5 +85,11 @@ body {
 
 .header__title {
   width: 80rem;
+}
+
+.section-home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 /*# sourceMappingURL=App.css.map */
