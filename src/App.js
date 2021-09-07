@@ -1,6 +1,6 @@
 import "./App.scss";
 
-import Events from "../src/components/Events";
+import Event from "./components/Event";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
           </div>
           <div className="sport-odds__league"></div>
           <div className="sport-odds__events">
-            <Events />
+            <Event />
           </div>
         </main>
         <aside className="sidebar-search">

@@ -1,0 +1,25 @@
+.table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  text-align: left;
+
+  th {
+    background-color: $color-grey-450;
+
+    &:first-child {
+      width: 60%;
+    }
+  }
+
+  td {
+    background-color: $color-grey-200;
+    color: $color-black;
+  }
+
+  th,
+  td {
+    padding: 0.5rem;
+  }
+}

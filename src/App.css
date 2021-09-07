@@ -61,6 +61,30 @@ body {
   padding: 3rem;
 }
 
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th {
+  background-color: #8f8a8a;
+}
+
+.table th:first-child {
+  width: 60%;
+}
+
+.table td {
+  background-color: #c4c4c4;
+  color: black;
+}
+
+.table th,
+.table td {
+  padding: 0.5rem;
+}
+
 .header {
   height: 8rem;
   width: 100%;
