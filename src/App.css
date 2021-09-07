@@ -85,6 +85,17 @@ body {
   padding: 0.5rem;
 }
 
+.sidebar-search__box {
+  width: 10rem;
+  height: 10rem;
+  margin-top: 3rem;
+  background-color: white;
+}
+
+.sidebar-sports__favourites, .sidebar-sports__list {
+  margin-top: 3rem;
+}
+
 .header {
   height: 8rem;
   width: 100%;
@@ -109,6 +120,17 @@ body {
   width: 80rem;
   min-height: 80vh;
   background-color: #4f4f4f;
+}
+
+.sport-odds__title {
+  height: 7rem;
+  padding: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .section-home {

@@ -12,8 +12,24 @@ function App() {
       </header>
       <section className="section-home">
         <aside className="sidebar-sports">
-          <div className="sidebar-sports__favourite">Favourite</div>
-          <div className="sidebar-sports__list">Sports</div>
+          <div className="sidebar-sports__favourites">
+            <ul>
+              <li>Basketball</li>
+              <li>Basketball</li>
+              <li>Basketball</li>
+              <li>Basketball</li>
+              <li>Basketball</li>
+            </ul>
+          </div>
+          <div className="sidebar-sports__list">
+            <ul>
+              <li>Basketball</li>
+              <li>Basketball</li>
+              <li>Basketball</li>
+              <li>Basketball</li>
+              <li>Basketball</li>
+            </ul>
+          </div>
         </aside>
         <main className="sport-odds">
           <div className="sport-odds__title">
@@ -21,6 +37,8 @@ function App() {
           </div>
           <div className="sport-odds__league"></div>
           <div className="sport-odds__events">
+            <Event />
+            <Event />
             <Event />
           </div>
         </main>

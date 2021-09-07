@@ -1,2 +1,10 @@
 .sidebar-search {
+  &__box {
+    width: 10rem;
+    height: 10rem;
+
+    margin-top: 3rem;
+
+    background-color: $color-white;
+  }
 }

@@ -3,4 +3,12 @@
   min-height: 80vh;
 
   background-color: $color-grey-650;
+
+  &__title {
+    height: 7rem;
+    padding: 0.5rem;
+
+    display: flex;
+    align-items: center;
+  }
 }
