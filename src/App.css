@@ -61,12 +61,6 @@ body {
   padding: 3rem;
 }
 
-.sport-odds {
-  width: 80rem;
-  min-height: 80vh;
-  background-color: #4f4f4f;
-}
-
 .header {
   height: 8rem;
   width: 100%;
@@ -85,6 +79,12 @@ body {
 
 .header__title {
   width: 80rem;
+}
+
+.sport-odds {
+  width: 80rem;
+  min-height: 80vh;
+  background-color: #4f4f4f;
 }
 
 .section-home {
