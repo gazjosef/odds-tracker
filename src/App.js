@@ -13,6 +13,7 @@ function App() {
       <section className="section-home">
         <aside className="sidebar-sports">
           <div className="sidebar-sports__favourites">
+            <h1 className="sidebar-sports__heading">Favorites</h1>
             <ul>
               <li>Basketball</li>
               <li>Basketball</li>
@@ -22,6 +23,7 @@ function App() {
             </ul>
           </div>
           <div className="sidebar-sports__list">
+            <h1 className="sidebar-sports__heading">Full List</h1>
             <ul>
               <li>Basketball</li>
               <li>Basketball</li>
