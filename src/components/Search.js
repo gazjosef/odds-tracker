@@ -1,10 +1,10 @@
 export default function Search({
+  data,
+  sport,
   displaySports,
-  displayLeagues,
   findOdds,
-  // sport,
-  league,
-  handleChange,
+  handleSportChange,
+  handleLeagueChange,
 }) {
   return (
     <aside className="sidebar-search">
@@ -12,30 +12,28 @@ export default function Search({
         <h1 className="sidebar-search__heading">Search</h1>
         <select
           className="form-select"
-          // defaultValue={sport}
           aria-label="Default select example"
-          onChange={handleChange}
+          onChange={handleSportChange}
         >
           <option>--Select Sport--</option>
           {displaySports}
         </select>
         <select
           className="form-select"
-          // defaultValue={league}
           aria-label="Default select example"
+          onChange={handleLeagueChange}
         >
           <option>--Select League--</option>
-          {displayLeagues}
-        </select>
-        <select
-          className="form-select"
-          // defaultValue="--Select Markets--"
-          aria-label="Default select example"
-        >
-          <option>--Select Markets--</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          {data &&
+            data.map((event, index) => {
+              if (event.group === sport) {
+                return (
+                  <option key={index} value={event.key}>
+                    {event.title}
+                  </option>
+                );
+              }
+            })}
         </select>
         <button className="button" onClick={findOdds}>
           Search
