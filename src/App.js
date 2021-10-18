@@ -63,6 +63,8 @@ function App() {
     <option key={index}>{sport}</option>
   ));
 
+  // * Find Objects
+
   const findOdds = async (e) => {
     e.preventDefault();
 
@@ -90,47 +92,56 @@ function App() {
     // setSpreads(spreadData);
     // setTotals(totalData);
 
-    displaySites(h2hData);
+    creatEventObject(h2hData);
+    addToEventObject(spreadData);
   };
 
-  console.log("H2H", h2hData);
+  // console.log("H2H", h2hData);
   // console.log("Spread", spreadData);
   // console.log("Total", totalData);
 
-  console.log("Event Object", eventObject);
-
-  const displaySites = (data) => {
+  // * CREATE EVENT OBJECT FUNCTION
+  const creatEventObject = (data) => {
+    // Clear Event Objet
     setEventObject([]);
 
+    // Loop through Data
     data.forEach((event) => {
-      // event.bookmakers.forEach((bookmaker) => {
-
-      //   bookmaker.markets.forEach((market) => {
-      //     market.outcomes.forEach((outcome) => {
-      //       odds.push(outcome);
-      //     });
-      //   });
-      // });
       let bookmakersArray = [];
 
-      let newBookmakers = event.bookmakers.forEach((bookmaker) => {
+      // Loop through Bookmmakers
+      event.bookmakers.forEach((bookmaker) => {
         let marketsArray = [];
 
+        // Loop through Markets
         bookmaker.markets.forEach((market) => {
-          let odds = [];
+          // let odds = [];
 
-          market.outcomes.forEach((outcome) => {
-            odds.push(outcome);
+          // // Loop through Outcomes
+          // market.outcomes.forEach((outcome) => {
+          //   odds.push(outcome);
+          // });
+
+          // Loop through Outcomes
+          let odds = market.outcomes.map((outcome) => {
+            return outcome;
           });
 
-          let newMarket = {
+          console.log("odds", odds);
+          // market.outcomes.forEach((outcome) => {
+          //   odds.push(outcome);
+          // });
+
+          // * CREATE MARKET OBJECT
+          let marketObject = {
             title: market.key,
             odds: odds,
           };
 
-          marketsArray.push(newMarket);
+          marketsArray.push(marketObject);
         });
 
+        // * CREATE BOOKMAKER OBJECT
         let newBookmaker = {
           title: bookmaker.title,
           markets: marketsArray,
@@ -139,6 +150,7 @@ function App() {
         bookmakersArray.push(newBookmaker);
       });
 
+      // * CREATE EVENT OBJECT
       let eventDetails = {
         id: event.id,
         sports_title: event.sport_title,
@@ -149,6 +161,29 @@ function App() {
       };
 
       setEventObject((prevArray) => [...prevArray, eventDetails]);
+    });
+  };
+
+  // console.log("Event Object", eventObject.bookmakers);
+
+  const addToEventObject = (data) => {
+    // console.log("Spread Data", data);
+    // console.log("Event Object", eventObject);
+    // console.log("Event Object Bookmakers", eventObject.bookmakers);
+
+    // Loop through Data
+    data.forEach((fixture) => {
+      // Find same event
+      let sameEvent = eventObject.find((event) => event.id === fixture.id);
+
+      console.log("Same Event", sameEvent);
+
+      if (sameEvent !== undefined) {
+        console.log("Same Event Bookmakers", sameEvent.bookmakers);
+        console.log("Spread Bookmakers", fixture);
+      }
+      // console.log("Spread", fixture.bookmakers);
+      // console.log(fixture);
     });
   };
 
