@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import "./App.scss";
+
 import jsonData from "./data.json";
-import secondData from "./secondData.json";
+
+import h2hData from "./h2hData.json";
+import spreadData from "./spreadData.json";
+import totalData from "./totalData.json";
 
 import Event from "./components/Event";
 import Search from "./components/Search";
@@ -16,9 +20,11 @@ function App() {
   const [sport, selectSport] = useState([]);
   const [league, selectLeague] = useState([]);
 
-  const [h2h, setH2H] = useState();
-  const [spreads, setSpreads] = useState();
-  const [totals, setTotals] = useState();
+  const [h2h, setH2H] = useState([]);
+  const [spreads, setSpreads] = useState([]);
+  const [totals, setTotals] = useState([]);
+
+  const [eventObject, setEventObject] = useState([]);
 
   // * Get Data
 
@@ -28,6 +34,8 @@ function App() {
     };
     getOdds();
   });
+
+  // console.log(jsonData);
 
   // * Set Sports
 
@@ -57,19 +65,92 @@ function App() {
 
   const findOdds = async (e) => {
     e.preventDefault();
-    // console.log("Find Odds");
 
+    // Original
     // const api_call = await fetch(
     //   `https://api.the-odds-api.com/v4/sports/${league}/odds?regions=au&oddsFormat=decimal&apiKey=${APIkey}`
     // );
 
-    // const apiData = await api_call.json();
-    // console.log("Get Data", apiData);
+    // New
+    // const markets = ["h2h", "spreads", "totals"];
 
-    setH2H(secondData);
+    // for (let i = 0; i < markets.length; i++) {
+    //   let market = markets[i];
+
+    //   let api_call = await fetch(
+    //     `https://api.the-odds-api.com/v4/sports/upcoming/odds/?apiKey=${APIkey}&regions=au&markets=${market}`
+    //   );
+
+    //   let apiData = await api_call.json();
+
+    //   console.log("API forLoop", apiData);
+    // }
+
+    // setH2H(h2hData);
+    // setSpreads(spreadData);
+    // setTotals(totalData);
+
+    displaySites(h2hData);
   };
 
-  console.log(h2h);
+  console.log("H2H", h2hData);
+  // console.log("Spread", spreadData);
+  // console.log("Total", totalData);
+
+  console.log("Event Object", eventObject);
+
+  const displaySites = (data) => {
+    setEventObject([]);
+
+    data.forEach((event) => {
+      // event.bookmakers.forEach((bookmaker) => {
+
+      //   bookmaker.markets.forEach((market) => {
+      //     market.outcomes.forEach((outcome) => {
+      //       odds.push(outcome);
+      //     });
+      //   });
+      // });
+      let bookmakersArray = [];
+
+      let newBookmakers = event.bookmakers.forEach((bookmaker) => {
+        let marketsArray = [];
+
+        bookmaker.markets.forEach((market) => {
+          let odds = [];
+
+          market.outcomes.forEach((outcome) => {
+            odds.push(outcome);
+          });
+
+          let newMarket = {
+            title: market.key,
+            odds: odds,
+          };
+
+          marketsArray.push(newMarket);
+        });
+
+        let newBookmaker = {
+          title: bookmaker.title,
+          markets: marketsArray,
+        };
+
+        bookmakersArray.push(newBookmaker);
+      });
+
+      let eventDetails = {
+        id: event.id,
+        sports_title: event.sport_title,
+        away_team: event.away_team,
+        home_team: event.home_team,
+        commence_time: event.commence_time,
+        bookmakers: bookmakersArray,
+      };
+
+      setEventObject((prevArray) => [...prevArray, eventDetails]);
+    });
+  };
 
   return (
     <>
@@ -85,9 +166,7 @@ function App() {
           </div>
           <div className="sport-odds__league"></div>
           <div className="sport-odds__events">
-            {/* <Event /> */}
-            {/* <Event /> */}
-            <Event h2h={h2h} />
+            <Event h2h={h2h} spreads={spreads} totals={totals} />
           </div>
         </main>
         <Search

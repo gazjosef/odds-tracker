@@ -32,6 +32,8 @@ export default function Search({
                     {event.title}
                   </option>
                 );
+              } else {
+                return console.log("failed");
               }
             })}
         </select>
