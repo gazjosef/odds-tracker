@@ -31,7 +31,6 @@ export default function Event({ h2h, spreads, totals }) {
                   </tr>
                 </tbody>
               </table>
-              {displaySites(h2h)}
             </>
           );
         })}
