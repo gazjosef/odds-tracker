@@ -11,6 +11,7 @@ import Event from "./components/Event";
 import Search from "./components/Search";
 
 // API Key
+// eslint-disable-next-line
 const APIkey = "0964ad4e3be969508766aef582e92012";
 
 function App() {
@@ -18,11 +19,12 @@ function App() {
   const [sports, setSports] = useState([]);
 
   const [sport, selectSport] = useState([]);
+  // eslint-disable-next-line
   const [league, selectLeague] = useState([]);
 
   const [h2h, setH2H] = useState([]);
-  const [spreads, setSpreads] = useState([]);
-  const [totals, setTotals] = useState([]);
+  const [spread, setSpread] = useState([]);
+  const [total, setTotal] = useState([]);
 
   const [eventObject, setEventObject] = useState([]);
 
@@ -68,12 +70,6 @@ function App() {
   const findOdds = async (e) => {
     e.preventDefault();
 
-    // Original
-    // const api_call = await fetch(
-    //   `https://api.the-odds-api.com/v4/sports/${league}/odds?regions=au&oddsFormat=decimal&apiKey=${APIkey}`
-    // );
-
-    // New
     // const markets = ["h2h", "spreads", "totals"];
 
     // for (let i = 0; i < markets.length; i++) {
@@ -88,17 +84,13 @@ function App() {
     //   console.log("API forLoop", apiData);
     // }
 
-    // setH2H(h2hData);
-    // setSpreads(spreadData);
-    // setTotals(totalData);
+    setH2H(h2hData);
+    setSpread(spreadData);
+    setTotal(totalData);
 
-    creatEventObject(h2hData);
-    addToEventObject(spreadData);
+    creatEventObject(h2h);
+    addSpreadAndTotal(spread, total);
   };
-
-  // console.log("H2H", h2hData);
-  // console.log("Spread", spreadData);
-  // console.log("Total", totalData);
 
   // * CREATE EVENT OBJECT FUNCTION
   const creatEventObject = (data) => {
@@ -107,47 +99,9 @@ function App() {
 
     // Loop through Data
     data.forEach((event) => {
-      let bookmakersArray = [];
-
-      // Loop through Bookmmakers
-      event.bookmakers.forEach((bookmaker) => {
-        let marketsArray = [];
-
-        // Loop through Markets
-        bookmaker.markets.forEach((market) => {
-          // let odds = [];
-
-          // // Loop through Outcomes
-          // market.outcomes.forEach((outcome) => {
-          //   odds.push(outcome);
-          // });
-
-          // Loop through Outcomes
-          let odds = market.outcomes.map((outcome) => {
-            return outcome;
-          });
-
-          console.log("odds", odds);
-          // market.outcomes.forEach((outcome) => {
-          //   odds.push(outcome);
-          // });
-
-          // * CREATE MARKET OBJECT
-          let marketObject = {
-            title: market.key,
-            odds: odds,
-          };
-
-          marketsArray.push(marketObject);
-        });
-
-        // * CREATE BOOKMAKER OBJECT
-        let newBookmaker = {
-          title: bookmaker.title,
-          markets: marketsArray,
-        };
-
-        bookmakersArray.push(newBookmaker);
+      // Loop through Bookmmakes
+      let h2hBookmakers = event.bookmakers.map((bookmaker) => {
+        return bookmaker;
       });
 
       // * CREATE EVENT OBJECT
@@ -157,35 +111,55 @@ function App() {
         away_team: event.away_team,
         home_team: event.home_team,
         commence_time: event.commence_time,
-        bookmakers: bookmakersArray,
+        h2h: h2hBookmakers,
+        spread: [],
+        total: [],
       };
 
       setEventObject((prevArray) => [...prevArray, eventDetails]);
     });
   };
 
-  // console.log("Event Object", eventObject.bookmakers);
+  const addSpreadAndTotal = (spread, total) => {
+    // Create mutable object
+    let mutableObject = eventObject;
 
-  const addToEventObject = (data) => {
-    // console.log("Spread Data", data);
-    // console.log("Event Object", eventObject);
-    // console.log("Event Object Bookmakers", eventObject.bookmakers);
-
-    // Loop through Data
-    data.forEach((fixture) => {
+    // Loop through Spread
+    spread.forEach((fixture) => {
       // Find same event
-      let sameEvent = eventObject.find((event) => event.id === fixture.id);
+      let event = mutableObject.find((event) => event.id === fixture.id);
 
-      console.log("Same Event", sameEvent);
-
-      if (sameEvent !== undefined) {
-        console.log("Same Event Bookmakers", sameEvent.bookmakers);
-        console.log("Spread Bookmakers", fixture);
+      // Avoid undefined error message
+      if (event !== undefined) {
+        // Add Spread Odds
+        fixture.bookmakers.map((bookmaker) => {
+          return event.spread.push(bookmaker);
+        });
       }
-      // console.log("Spread", fixture.bookmakers);
-      // console.log(fixture);
     });
+
+    // Loop through Total
+    total.forEach((fixture) => {
+      // Find same event
+      let event = mutableObject.find((event) => event.id === fixture.id);
+
+      // Avoid undefined error message
+      if (event !== undefined) {
+        // Add Spread Odds
+        fixture.bookmakers.map((bookmaker) => {
+          return event.total.push(bookmaker);
+        });
+      }
+    });
+
+    console.log("mutableObject", mutableObject);
+    // if (mutableObject !== undefined) {
+    //   setEventObject(mutableObject);
+    // }
+    setEventObject(mutableObject);
   };
+
+  console.log("Event Object", eventObject);
 
   return (
     <>
@@ -201,7 +175,7 @@ function App() {
           </div>
           <div className="sport-odds__league"></div>
           <div className="sport-odds__events">
-            <Event h2h={h2h} spreads={spreads} totals={totals} />
+            <Event h2h={h2h} spread={spread} total={total} />
           </div>
         </main>
         <Search

@@ -7,16 +7,16 @@ export default function Event({ h2h, spreads, totals }) {
         h2h.map((event, index) => {
           return (
             <>
-              <table className="table">
+              <table className="table" key={index}>
                 <thead>
-                  <tr>
+                  <tr key={index}>
                     <th>Wed 09 Jun</th>
                     <th>Line</th>
                     <th>Total</th>
                     <th>Win</th>
                   </tr>
                 </thead>
-                <tbody key={index}>
+                <tbody>
                   <tr>
                     <td>{event.away_team}</td>
                     <td>+6.0</td>
