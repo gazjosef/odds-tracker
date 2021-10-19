@@ -11,8 +11,7 @@ import Event from "./components/Event";
 import Search from "./components/Search";
 
 // API Key
-// eslint-disable-next-line
-const APIkey = "0964ad4e3be969508766aef582e92012";
+// const APIkey = "0964ad4e3be969508766aef582e92012";
 
 function App() {
   const [data, setData] = useState();

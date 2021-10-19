@@ -1,5 +1,6 @@
 .table {
   width: 100%;
+  border-bottom: 1px solid $color-black;
 
   border-collapse: collapse;
 
@@ -7,10 +8,6 @@
 
   th {
     background-color: $color-grey-450;
-
-    &:second-child {
-      width: 60%;
-    }
   }
 
   td {
