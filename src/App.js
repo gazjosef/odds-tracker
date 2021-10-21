@@ -22,8 +22,6 @@ function App() {
   const [league, selectLeague] = useState([]);
 
   const [h2h, setH2H] = useState([]);
-  const [spread, setSpread] = useState([]);
-  const [total, setTotal] = useState([]);
 
   const [eventObject, setEventObject] = useState([]);
 
@@ -34,19 +32,22 @@ function App() {
       setData(jsonData);
     };
     getOdds();
-  });
 
-  // console.log(jsonData);
+    // SET SPORTS
 
-  // * Set Sports
+    if (data !== undefined && sports.length === 0) {
+      const allSports = data.map((event) => event.group);
 
-  if (data !== undefined && sports.length === 0) {
-    const allSports = data.map((event) => event.group);
+      const uniqueSports = [...new Set(allSports)];
 
-    const uniqueSports = [...new Set(allSports)];
+      setSports(uniqueSports);
+    }
 
-    setSports(uniqueSports);
-  }
+    // Set Upc
+    setH2H(h2hData);
+    // ? setH2H Completed?
+    console.warn("setH2HCompleted?");
+  }, [data, sports.length]);
 
   // * Handle Sport & League onChange
 
@@ -58,41 +59,33 @@ function App() {
     selectLeague(e.target.value);
   };
 
-  // * Display Elements
-
-  const displaySports = sports.map((sport, index) => (
-    <option key={index}>{sport}</option>
-  ));
-
-  // * Find Objects
+  // * Find Odds
 
   const findOdds = async (e) => {
     e.preventDefault();
-
     // const markets = ["h2h", "spreads", "totals"];
-
     // for (let i = 0; i < markets.length; i++) {
     //   let market = markets[i];
-
     //   let api_call = await fetch(
     //     `https://api.the-odds-api.com/v4/sports/upcoming/odds/?apiKey=${APIkey}&regions=au&markets=${market}`
     //   );
-
     //   let apiData = await api_call.json();
-
     //   console.log("API forLoop", apiData);
     // }
 
-    setH2H(h2hData);
-    setSpread(spreadData);
-    setTotal(totalData);
+    creatEventObject(h2hData);
+    addSpreadAndTotal(spreadData, totalData);
+    // ? creatEventObject & addSpreadAndTotal Completed?
+    console.warn("creatEventObject & addSpreadAndTotal Completed?");
 
-    creatEventObject(h2h);
-    addSpreadAndTotal(spread, total);
+    console.log("Event Object", eventObject);
   };
 
   // * CREATE EVENT OBJECT FUNCTION
   const creatEventObject = (data) => {
+    // ? creatEventObject RAN?
+    console.warn("creatEventObject Ran?");
+
     // Clear Event Objet
     setEventObject([]);
 
@@ -116,10 +109,16 @@ function App() {
       };
 
       setEventObject((prevArray) => [...prevArray, eventDetails]);
+
+      // ? creatEventObject: COMPLETED?
+      console.warn("creatEventObject Completed");
     });
   };
 
   const addSpreadAndTotal = (spread, total) => {
+    // ? addSpreadAndTotal: RAN?
+    console.warn("addSpreadAndTotal Ran");
+
     // Create mutable object
     let mutableObject = eventObject;
 
@@ -152,13 +151,14 @@ function App() {
     });
 
     console.log("mutableObject", mutableObject);
-    // if (mutableObject !== undefined) {
-    //   setEventObject(mutableObject);
-    // }
-    setEventObject(mutableObject);
+    // ? addSpreadAndTotal: Completed?
+    console.warn("addSpreadAndTotal Completed");
+
+    setEventObject({ ...eventObject, mutableObject });
+    console.warn("setEventObject Completed");
   };
 
-  console.log("Event Object", eventObject);
+  // console.log("Event Object", eventObject);
 
   return (
     <>
@@ -174,13 +174,13 @@ function App() {
           </div>
           <div className="sport-odds__league"></div>
           <div className="sport-odds__events">
-            <Event h2h={h2h} spread={spread} total={total} />
+            <Event h2h={h2h} />
           </div>
         </main>
         <Search
           data={data}
           sport={sport}
-          displaySports={displaySports}
+          sports={sports}
           findOdds={findOdds}
           handleSportChange={handleSportChange}
           handleLeagueChange={handleLeagueChange}
