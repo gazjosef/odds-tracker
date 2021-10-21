@@ -1,11 +1,14 @@
 export default function Search({
   data,
   sport,
-  displaySports,
+  sports,
   findOdds,
   handleSportChange,
   handleLeagueChange,
 }) {
+  const displaySports = sports.map((sport, index) => (
+    <option key={index}>{sport}</option>
+  ));
   return (
     <aside className="sidebar-search">
       <div className="sidebar-search__box">
