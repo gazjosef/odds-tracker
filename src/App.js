@@ -21,8 +21,6 @@ function App() {
   // eslint-disable-next-line
   const [league, selectLeague] = useState([]);
 
-  const [h2h, setH2H] = useState([]);
-
   const [eventObject, setEventObject] = useState([]);
 
   // * Get Data
@@ -42,27 +40,14 @@ function App() {
 
       setSports(uniqueSports);
     }
-
-    // Set Upc
-    setH2H(h2hData);
-    // ? setH2H Completed?
-    console.warn("setH2HCompleted?");
   }, [data, sports.length]);
 
-  // * Handle Sport & League onChange
+  console.log("jsonData", jsonData);
 
-  const handleSportChange = (e) => {
-    selectSport(e.target.value);
-  };
-
-  const handleLeagueChange = (e) => {
-    selectLeague(e.target.value);
-  };
-
-  // * Find Odds
+  // * FIND ODDS
 
   const findOdds = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     // const markets = ["h2h", "spreads", "totals"];
     // for (let i = 0; i < markets.length; i++) {
     //   let market = markets[i];
@@ -73,25 +58,20 @@ function App() {
     //   console.log("API forLoop", apiData);
     // }
 
-    creatEventObject(h2hData);
-    addSpreadAndTotal(spreadData, totalData);
-    // ? creatEventObject & addSpreadAndTotal Completed?
-    console.warn("creatEventObject & addSpreadAndTotal Completed?");
-
-    console.log("Event Object", eventObject);
+    creatEventObject(h2hData, spreadData, totalData);
+    console.warn("creatEventObject Completed");
   };
 
   // * CREATE EVENT OBJECT FUNCTION
-  const creatEventObject = (data) => {
-    // ? creatEventObject RAN?
-    console.warn("creatEventObject Ran?");
-
+  const creatEventObject = (h2h, spread, total) => {
     // Clear Event Objet
     setEventObject([]);
 
-    // Loop through Data
-    data.forEach((event) => {
-      // Loop through Bookmmakes
+    const newObject = [];
+
+    // Loop through H2H
+    h2h.forEach((event) => {
+      // Map Bookmmakes
       let h2hBookmakers = event.bookmakers.map((bookmaker) => {
         return bookmaker;
       });
@@ -108,24 +88,13 @@ function App() {
         total: [],
       };
 
-      setEventObject((prevArray) => [...prevArray, eventDetails]);
-
-      // ? creatEventObject: COMPLETED?
-      console.warn("creatEventObject Completed");
+      newObject.push(eventDetails);
     });
-  };
-
-  const addSpreadAndTotal = (spread, total) => {
-    // ? addSpreadAndTotal: RAN?
-    console.warn("addSpreadAndTotal Ran");
-
-    // Create mutable object
-    let mutableObject = eventObject;
 
     // Loop through Spread
     spread.forEach((fixture) => {
       // Find same event
-      let event = mutableObject.find((event) => event.id === fixture.id);
+      let event = newObject.find((event) => event.id === fixture.id);
 
       // Avoid undefined error message
       if (event !== undefined) {
@@ -139,7 +108,7 @@ function App() {
     // Loop through Total
     total.forEach((fixture) => {
       // Find same event
-      let event = mutableObject.find((event) => event.id === fixture.id);
+      let event = newObject.find((event) => event.id === fixture.id);
 
       // Avoid undefined error message
       if (event !== undefined) {
@@ -150,15 +119,10 @@ function App() {
       }
     });
 
-    console.log("mutableObject", mutableObject);
-    // ? addSpreadAndTotal: Completed?
-    console.warn("addSpreadAndTotal Completed");
+    setEventObject(newObject);
 
-    setEventObject({ ...eventObject, mutableObject });
-    console.warn("setEventObject Completed");
+    console.warn("Set Event Object Completed");
   };
-
-  // console.log("Event Object", eventObject);
 
   return (
     <>
@@ -174,7 +138,7 @@ function App() {
           </div>
           <div className="sport-odds__league"></div>
           <div className="sport-odds__events">
-            <Event h2h={h2h} />
+            <Event eventObject={eventObject} />
           </div>
         </main>
         <Search
@@ -182,8 +146,8 @@ function App() {
           sport={sport}
           sports={sports}
           findOdds={findOdds}
-          handleSportChange={handleSportChange}
-          handleLeagueChange={handleLeagueChange}
+          selectSport={selectSport}
+          selectLeague={selectLeague}
         />
       </section>
     </>

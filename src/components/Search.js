@@ -3,12 +3,26 @@ export default function Search({
   sport,
   sports,
   findOdds,
-  handleSportChange,
-  handleLeagueChange,
+  selectSport,
+  selectLeague,
 }) {
+  // * DISPLAY SPORTS
+
   const displaySports = sports.map((sport, index) => (
     <option key={index}>{sport}</option>
   ));
+
+  // * HANDLE ONCHANGE
+
+  const handleSportChange = (e) => {
+    selectSport(e.target.value);
+    console.log("handleSportChange", e.target.value);
+  };
+
+  const handleLeagueChange = (e) => {
+    selectLeague(e.target.value);
+    console.log("handleLeagueChange", e.target.value);
+  };
   return (
     <aside className="sidebar-search">
       <div className="sidebar-search__box">
@@ -30,6 +44,7 @@ export default function Search({
           {data &&
             data.map((event, index) => {
               if (event.group === sport) {
+                console.log("worked");
                 return (
                   <option key={index} value={event.key}>
                     {event.title}
