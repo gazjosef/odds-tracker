@@ -23,7 +23,7 @@ function App() {
 
   const [eventObject, setEventObject] = useState([]);
 
-  // * Get Data
+  // * GET DATA
 
   useEffect(() => {
     const getOdds = () => {
@@ -42,7 +42,7 @@ function App() {
     }
   }, [data, sports.length]);
 
-  console.log("jsonData", jsonData);
+  console.log("h2hData", h2hData);
 
   // * FIND ODDS
 
@@ -63,6 +63,7 @@ function App() {
   };
 
   // * CREATE EVENT OBJECT FUNCTION
+
   const creatEventObject = (h2h, spread, total) => {
     // Clear Event Objet
     setEventObject([]);

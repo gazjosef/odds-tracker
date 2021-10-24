@@ -23,6 +23,7 @@ export default function Search({
     selectLeague(e.target.value);
     console.log("handleLeagueChange", e.target.value);
   };
+
   return (
     <aside className="sidebar-search">
       <div className="sidebar-search__box">
