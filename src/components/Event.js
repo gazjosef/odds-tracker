@@ -20,7 +20,7 @@ export default function Event({ eventObject }) {
     for (let i = 0; i < bookmakers.length; i++) {
       if (bookmakers[i].markets[0].outcomes[0].price > bestHome) {
         bestHome = bookmakers[i].markets[0].outcomes[0].price;
-        bestBookmaker = bookmakers[i].title;
+        bestBookmaker = bookmakers[i].key;
       }
     }
     return bestBookmaker;
@@ -35,9 +35,12 @@ export default function Event({ eventObject }) {
       if (bookmakers[i].markets[0].outcomes[0].point > bestHomeTotal) {
         bestHomeTotal = bookmakers[i].markets[0].outcomes[0].point;
         bestPrice = bookmakers[i].markets[0].outcomes[0].price;
+      } else {
+        bestHomeTotal = bookmakers[i].markets[0].outcomes[0].point;
+        bestPrice = bookmakers[i].markets[0].outcomes[0].price;
       }
     }
-    return `${bestHomeTotal}(${bestPrice})`;
+    return `${bestHomeTotal} ($${bestPrice})`;
   };
 
   const bestHomePointsBookmaker = (bookmakers) => {
@@ -46,7 +49,10 @@ export default function Event({ eventObject }) {
     for (let i = 0; i < bookmakers.length; i++) {
       if (bookmakers[i].markets[0].outcomes[0].point > bestHomeTotal) {
         bestHomeTotal = bookmakers[i].markets[0].outcomes[0].point;
-        bestBookmaker = bookmakers[i].title;
+        bestBookmaker = bookmakers[i].key;
+      } else {
+        bestHomeTotal = bookmakers[i].markets[0].outcomes[0].point;
+        bestBookmaker = bookmakers[i].key;
       }
     }
     return bestBookmaker;
@@ -71,7 +77,7 @@ export default function Event({ eventObject }) {
     for (let i = 0; i < bookmakers.length; i++) {
       if (bookmakers[i].markets[0].outcomes[1].price > bestAway) {
         bestAway = bookmakers[i].markets[0].outcomes[1].price;
-        bestBookmaker = bookmakers[i].title;
+        bestBookmaker = bookmakers[i].key;
       }
     }
     return bestBookmaker;
@@ -86,9 +92,12 @@ export default function Event({ eventObject }) {
       if (bookmakers[i].markets[0].outcomes[1].point > bestAwayPoint) {
         bestAwayPoint = bookmakers[i].markets[0].outcomes[1].point;
         bestPrice = bookmakers[i].markets[0].outcomes[1].price;
+      } else {
+        bestAwayPoint = bookmakers[i].markets[0].outcomes[1].point;
+        bestPrice = bookmakers[i].markets[0].outcomes[1].price;
       }
     }
-    return `${bestAwayPoint}(${bestPrice})`;
+    return `${bestAwayPoint} ($${bestPrice})`;
   };
 
   const bestAwayPointsBookmaker = (bookmakers) => {
@@ -97,7 +106,10 @@ export default function Event({ eventObject }) {
     for (let i = 0; i < bookmakers.length; i++) {
       if (bookmakers[i].markets[0].outcomes[1].point > bestAwayPoint) {
         bestAwayPoint = bookmakers[i].markets[0].outcomes[1].point;
-        bestBookmaker = bookmakers[i].title;
+        bestBookmaker = bookmakers[i].key;
+      } else {
+        bestAwayPoint = bookmakers[i].markets[0].outcomes[1].point;
+        bestBookmaker = bookmakers[i].key;
       }
     }
     return bestBookmaker;
@@ -117,9 +129,6 @@ export default function Event({ eventObject }) {
     return result;
   };
 
-  // ! REMOVE
-  // console.log("EVENT eventObject", eventObject);
-
   return (
     <table className="table">
       <thead>
@@ -138,8 +147,6 @@ export default function Event({ eventObject }) {
       </thead>
       {eventObject &&
         eventObject.map((event, key) => {
-          console.log("Map event", event);
-          console.log("Map event h2h[0] --markets[0]", event.h2h[0]);
           return (
             <tbody key={key}>
               <tr>
@@ -147,23 +154,67 @@ export default function Event({ eventObject }) {
                 <td rowSpan="2">{timeConverter(event.commence_time)}</td>
                 <td rowSpan="2">{event.sports_title}</td>
                 <td>{event.away_team}</td>
-                <td>{bestHomePointsBookmaker(event.spread)}</td>
-                <td>{bestHomePoints(event.spread)}</td>
-                <td>{bestHomePointsBookmaker(event.total)}</td>
-                <td>O{bestHomePoints(event.total)}</td>
-                <td>{bestHomeOddsBookmaker(event.h2h)}</td>
-                <td>{bestHomeOdds(event.h2h)}</td>
+                <td>
+                  {event.spread.length !== 0
+                    ? bestHomePointsBookmaker(event.spread)
+                    : null}
+                </td>
+                <td>
+                  {event.spread.length !== 0
+                    ? bestHomePoints(event.spread)
+                    : null}
+                </td>
+                <td>
+                  {event.total.length !== 0
+                    ? bestHomePointsBookmaker(event.total)
+                    : null}
+                </td>
+                <td>
+                  {event.total.length !== 0
+                    ? "O" + bestHomePoints(event.total)
+                    : null}
+                </td>
+                <td>
+                  {event.h2h.length !== 0
+                    ? bestHomeOddsBookmaker(event.h2h)
+                    : null}
+                </td>
+                <td>
+                  {event.h2h.length !== 0
+                    ? "$" + bestHomeOdds(event.h2h)
+                    : null}
+                </td>
               </tr>
               <tr className="table__bottom-row">
                 <td>{event.home_team}</td>
-                {/* <td>Bookmaker</td>
-                <td>-6.0</td> */}
-                <td>{bestAwayPointsBookmaker(event.spread)}</td>
-                <td>{bestAwayPoints(event.spread)}</td>
-                <td>{bestAwayPointsBookmaker(event.total)}</td>
-                <td>U{bestAwayPoints(event.total)}</td>
-                <td>{bestAwayBookmaker(event.h2h)}</td>
-                <td>{bestAwayOdds(event.h2h)}</td>
+                <td>
+                  {event.spread.length !== 0
+                    ? bestAwayPointsBookmaker(event.spread)
+                    : null}
+                </td>
+                <td>
+                  {event.spread.length !== 0
+                    ? bestAwayPoints(event.spread)
+                    : null}
+                </td>
+                <td>
+                  {event.total.length !== 0
+                    ? bestAwayPointsBookmaker(event.total)
+                    : null}
+                </td>
+                <td>
+                  {event.total.length !== 0
+                    ? "O" + bestAwayPoints(event.total)
+                    : null}
+                </td>
+                <td>
+                  {event.h2h.length !== 0 ? bestAwayBookmaker(event.h2h) : null}
+                </td>
+                <td>
+                  {event.h2h.length !== 0
+                    ? "$" + bestAwayOdds(event.h2h)
+                    : null}
+                </td>
               </tr>
             </tbody>
           );

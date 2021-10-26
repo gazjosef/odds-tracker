@@ -42,7 +42,7 @@ function App() {
     }
   }, [data, sports.length]);
 
-  console.log("h2hData", h2hData);
+  // console.log("h2hData", h2hData);
 
   // * FIND ODDS
 
