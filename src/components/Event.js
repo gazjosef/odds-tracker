@@ -1,4 +1,15 @@
 import React from "react";
+import Bet365 from "../img/bet365.svg";
+import Betfair from "../img/betfair.svg";
+import Betstar from "../img/betstar.svg";
+import Bookmaker from "../img/bookmaker.svg";
+import Ladbrokes from "../img/ladbrokes.svg";
+import Neds from "../img/neds.svg";
+import Pointsbetau from "../img/pointsbetau.svg";
+import Sportsbet from "../img/sportsbet.svg";
+import Sportsbetting from "../img/sportsbetting.svg";
+import Tab from "../img/tab.svg";
+import Unibet from "../img/unibet.svg";
 
 export default function Event({ eventObject }) {
   // * BEST HOME ODDS
@@ -113,12 +124,57 @@ export default function Event({ eventObject }) {
       }
     }
     return bestBookmaker;
+
+    // return iconConverter(bestBookmaker);
+  };
+
+  // * BEST DRAW ODDS
+
+  const bestDrawOdds = (bookmakers) => {
+    let bestDraw = 0;
+    for (let i = 0; i < bookmakers.length; i++) {
+      if (bookmakers[i].markets[0].outcomes[2].price > bestDraw) {
+        bestDraw = bookmakers[i].markets[0].outcomes[2].price;
+      }
+    }
+    return bestDraw;
+  };
+
+  const bestDrawBookmaker = (bookmakers) => {
+    let bestDraw = 0;
+    let bestBookmaker = "";
+    for (let i = 0; i < bookmakers.length; i++) {
+      if (bookmakers[i].markets[0].outcomes[2].price > bestDraw) {
+        bestDraw = bookmakers[i].markets[0].outcomes[2].price;
+        bestBookmaker = bookmakers[i].key;
+      }
+    }
+    return bestBookmaker;
   };
 
   // * CONVERT FROM ISO TO DATE
 
   const dateConverter = (date) => {
     return date.substring(0, 10);
+  };
+
+  // * COVERT TO ICON
+  const iconConverter = (icon) => {
+    const convertIcon = {
+      bet365: <Bet365 />,
+      betfair: <Betfair />,
+      betstar: <Betstar />,
+      bookmaker: <Bookmaker />,
+      ladbrokes: <Ladbrokes />,
+      neds: <Neds />,
+      playup: "playup",
+      pointsbetau: <Pointsbetau />,
+      sportsbet: <Sportsbet />,
+      sportsbetting: <Sportsbetting />,
+      tab: <Tab />,
+      unibet: <Unibet />,
+    };
+    return convertIcon[icon];
   };
 
   // * CONVERT TIME
@@ -147,77 +203,183 @@ export default function Event({ eventObject }) {
       </thead>
       {eventObject &&
         eventObject.map((event, key) => {
-          return (
-            <tbody key={key}>
-              <tr>
-                <td rowSpan="2">{dateConverter(event.commence_time)}</td>
-                <td rowSpan="2">{timeConverter(event.commence_time)}</td>
-                <td rowSpan="2">{event.sports_title}</td>
-                <td>{event.away_team}</td>
-                <td>
-                  {event.spread.length !== 0
-                    ? bestHomePointsBookmaker(event.spread)
-                    : null}
-                </td>
-                <td>
-                  {event.spread.length !== 0
-                    ? bestHomePoints(event.spread)
-                    : null}
-                </td>
-                <td>
-                  {event.total.length !== 0
-                    ? bestHomePointsBookmaker(event.total)
-                    : null}
-                </td>
-                <td>
-                  {event.total.length !== 0
-                    ? "O" + bestHomePoints(event.total)
-                    : null}
-                </td>
-                <td>
-                  {event.h2h.length !== 0
-                    ? bestHomeOddsBookmaker(event.h2h)
-                    : null}
-                </td>
-                <td>
-                  {event.h2h.length !== 0
-                    ? "$" + bestHomeOdds(event.h2h)
-                    : null}
-                </td>
-              </tr>
-              <tr className="table__bottom-row">
-                <td>{event.home_team}</td>
-                <td>
-                  {event.spread.length !== 0
-                    ? bestAwayPointsBookmaker(event.spread)
-                    : null}
-                </td>
-                <td>
-                  {event.spread.length !== 0
-                    ? bestAwayPoints(event.spread)
-                    : null}
-                </td>
-                <td>
-                  {event.total.length !== 0
-                    ? bestAwayPointsBookmaker(event.total)
-                    : null}
-                </td>
-                <td>
-                  {event.total.length !== 0
-                    ? "O" + bestAwayPoints(event.total)
-                    : null}
-                </td>
-                <td>
-                  {event.h2h.length !== 0 ? bestAwayBookmaker(event.h2h) : null}
-                </td>
-                <td>
-                  {event.h2h.length !== 0
-                    ? "$" + bestAwayOdds(event.h2h)
-                    : null}
-                </td>
-              </tr>
-            </tbody>
-          );
+          console.log("event", event);
+          console.log("event TEST", event);
+          if (
+            event.h2h.length !== 0 &&
+            event.h2h[0].markets[0].outcomes.length > 2
+          ) {
+            return (
+              <tbody key={key}>
+                <tr>
+                  <td rowSpan="3">{dateConverter(event.commence_time)}</td>
+                  <td rowSpan="3">{timeConverter(event.commence_time)}</td>
+                  <td rowSpan="3">{event.sports_title}</td>
+                  <td>{event.away_team}</td>
+                  <td>
+                    {event.spread.length !== 0
+                      ? bestHomePointsBookmaker(event.spread)
+                      : null}
+                  </td>
+                  <td>
+                    {event.spread.length !== 0
+                      ? bestHomePoints(event.spread)
+                      : null}
+                  </td>
+                  <td>
+                    {event.total.length !== 0
+                      ? bestHomePointsBookmaker(event.total)
+                      : null}
+                  </td>
+                  <td>
+                    {event.total.length !== 0
+                      ? "O" + bestHomePoints(event.total)
+                      : null}
+                  </td>
+                  {/* <td>
+                    <img src={Betfair} className="icons" alt="icons" />
+                  </td> */}
+                  <td>
+                    {event.h2h.length !== 0
+                      ? bestHomeOddsBookmaker(event.h2h)
+                      : null}
+                  </td>
+                  <td>
+                    {event.h2h.length !== 0
+                      ? "$" + bestHomeOdds(event.h2h)
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>{event.home_team}</td>
+                  <td>
+                    {event.spread.length !== 0
+                      ? bestAwayPointsBookmaker(event.spread)
+                      : null}
+                  </td>
+                  <td>
+                    {event.spread.length !== 0
+                      ? bestAwayPoints(event.spread)
+                      : null}
+                  </td>
+                  <td>
+                    {event.total.length !== 0
+                      ? bestAwayPointsBookmaker(event.total)
+                      : null}
+                  </td>
+                  <td>
+                    {event.total.length !== 0
+                      ? "O" + bestAwayPoints(event.total)
+                      : null}
+                  </td>
+                  <td>
+                    {event.h2h.length !== 0
+                      ? bestAwayBookmaker(event.h2h)
+                      : null}
+                  </td>
+                  <td>
+                    {event.h2h.length !== 0
+                      ? "$" + bestAwayOdds(event.h2h)
+                      : null}
+                  </td>
+                </tr>
+                <tr className="table__bottom-row">
+                  <td>Draw</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    {event.h2h.length !== 0
+                      ? bestDrawBookmaker(event.h2h)
+                      : null}
+                  </td>
+                  <td>
+                    {event.h2h.length !== 0
+                      ? "$" + bestDrawOdds(event.h2h)
+                      : null}
+                  </td>
+                </tr>
+              </tbody>
+            );
+          } else {
+            return (
+              <tbody key={key}>
+                <tr>
+                  <td rowSpan="2">{dateConverter(event.commence_time)}</td>
+                  <td rowSpan="2">{timeConverter(event.commence_time)}</td>
+                  <td rowSpan="2">{event.sports_title}</td>
+                  <td>{event.away_team}</td>
+                  <td>
+                    {event.spread.length !== 0
+                      ? bestHomePointsBookmaker(event.spread)
+                      : null}
+                  </td>
+                  <td>
+                    {event.spread.length !== 0
+                      ? bestHomePoints(event.spread)
+                      : null}
+                  </td>
+                  <td>
+                    {event.total.length !== 0
+                      ? bestHomePointsBookmaker(event.total)
+                      : null}
+                  </td>
+                  <td>
+                    {event.total.length !== 0
+                      ? "O" + bestHomePoints(event.total)
+                      : null}
+                  </td>
+                  {/* <td>
+                    <img src={Betfair} className="icons" alt="icons" />
+                  </td> */}
+                  <td>
+                    {event.h2h.length !== 0
+                      ? bestHomeOddsBookmaker(event.h2h)
+                      : null}
+                  </td>
+                  <td>
+                    {event.h2h.length !== 0
+                      ? "$" + bestHomeOdds(event.h2h)
+                      : null}
+                  </td>
+                </tr>
+                <tr className="table__bottom-row">
+                  <td>{event.home_team}</td>
+                  <td>
+                    {event.spread.length !== 0
+                      ? bestAwayPointsBookmaker(event.spread)
+                      : null}
+                  </td>
+                  <td>
+                    {event.spread.length !== 0
+                      ? bestAwayPoints(event.spread)
+                      : null}
+                  </td>
+                  <td>
+                    {event.total.length !== 0
+                      ? bestAwayPointsBookmaker(event.total)
+                      : null}
+                  </td>
+                  <td>
+                    {event.total.length !== 0
+                      ? "O" + bestAwayPoints(event.total)
+                      : null}
+                  </td>
+                  <td>
+                    {event.h2h.length !== 0
+                      ? bestAwayBookmaker(event.h2h)
+                      : null}
+                  </td>
+                  <td>
+                    {event.h2h.length !== 0
+                      ? "$" + bestAwayOdds(event.h2h)
+                      : null}
+                  </td>
+                </tr>
+              </tbody>
+            );
+          }
         })}
     </table>
   );
