@@ -262,7 +262,7 @@ export default function Event({ eventObject }) {
                   </td>
                   <td>
                     {event.total.length !== 0
-                      ? "O" + bestAwayPoints(event.total)
+                      ? "U" + bestAwayPoints(event.total)
                       : null}
                   </td>
                   <td>
@@ -323,9 +323,7 @@ export default function Event({ eventObject }) {
                       ? "O" + bestHomePoints(event.total)
                       : null}
                   </td>
-                  {/* <td>
-                      <img src={Betfair} className="icons" alt="icons" />
-                    </td> */}
+
                   <td>
                     {event.h2h.length !== 0
                       ? bestHomeOddsBookmaker(event.h2h)
@@ -356,7 +354,7 @@ export default function Event({ eventObject }) {
                   </td>
                   <td>
                     {event.total.length !== 0
-                      ? "O" + bestAwayPoints(event.total)
+                      ? "U" + bestAwayPoints(event.total)
                       : null}
                   </td>
                   <td>

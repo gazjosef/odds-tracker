@@ -127,8 +127,8 @@ export default function Home() {
       </header>
       <main className="home">
         <section className="display-odds">
-          <div className="display-odds__title">
-            <h1>Sport</h1>
+          <div>
+            <h1 className="display-odds__title">Upcoming Events</h1>
           </div>
           <div className="display-odds__league"></div>
           <div className="display-odds__events">
