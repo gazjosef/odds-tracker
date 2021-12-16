@@ -1,0 +1,19 @@
+.icons {
+  display: block;
+
+  text-align: center;
+
+  -webkit-transform: rotate(90deg) translateY(-30%) scale(0.7);
+  -moz-transform: rotate(90deg) translateY(-30%) scale(0.7);
+  -o-transform: rotate(90deg) translateY(-30%) scale(0.7);
+  -ms-transform: rotate(90deg) translateY(-30%) scale(0.7);
+  transform: rotate(90deg) translateY(-30%) scale(0.7);
+
+  &--neds {
+    background-color: orangered;
+  }
+
+  &--tab {
+    background-color: #028953;
+  }
+}
