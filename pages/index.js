@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import Event from "@/components/Event";
 import Searchbar from "@/components/Searchbar";
 
+import { FaSearch } from "react-icons/fa";
+
 import jsonData from "@/data/data.json";
 import h2hData from "@/data/h2hData.json";
 import spreadData from "@/data/spreadData.json";
@@ -122,6 +124,8 @@ export default function Home() {
     <>
       <header className="header">
         <div className="header__title">
+          <FaSearch fontSize={32} />
+
           <h1>Odds Tracker</h1>
         </div>
       </header>
@@ -130,11 +134,14 @@ export default function Home() {
           <div>
             <h1 className="display-odds__title">Upcoming Events</h1>
           </div>
+
           <div className="display-odds__league"></div>
+
           <div className="display-odds__events">
             <Event eventObject={eventObject} />
           </div>
         </section>
+
         <Searchbar
           data={data}
           sport={sport}
