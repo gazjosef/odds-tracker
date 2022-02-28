@@ -1,3 +1,11 @@
+.aside {
+  padding: 2rem;
+  grid-column: 5 / -1;
+
+  display: grid;
+  justify-content: start;
+}
+
 .sidebar-search {
   &__heading {
     text-transform: uppercase;

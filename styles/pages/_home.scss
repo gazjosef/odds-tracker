@@ -1,6 +1,5 @@
 .home {
-  padding: 5rem 0;
+  padding: 2rem;
 
-  display: flex;
-  justify-content: space-around;
+  grid-column: 1 / span 4;
 }

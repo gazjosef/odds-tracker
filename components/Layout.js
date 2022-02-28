@@ -1,5 +1,6 @@
 import { Meta } from "@/components/Meta";
 import { useRouter } from "next/router";
+import Header from "./Header";
 
 export const Layout = ({ children }) => {
   const router = useRouter();
@@ -9,6 +10,8 @@ export const Layout = ({ children }) => {
       <header>
         <Meta />
       </header>
+
+      <Header />
 
       {router.pathname === "/"}
 

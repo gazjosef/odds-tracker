@@ -191,12 +191,9 @@ export default function Event({ eventObject }) {
           <th>Time</th>
           <th>Sports Title</th>
           <th>Team</th>
-          <th></th>
-          <th>Line</th>
-          <th></th>
-          <th>Total</th>
-          <th></th>
-          <th>Win</th>
+          <th colSpan="2">Line</th>
+          <th colSpan="2">Total</th>
+          <th colSpan="2">Win</th>
         </tr>
       </thead>
       {eventObject &&
