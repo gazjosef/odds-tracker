@@ -2,7 +2,12 @@
   width: 100%;
   border-collapse: collapse;
 
+  font-size: 0.9em;
   text-align: center;
+
+  thead tr {
+    font-weight: bold;
+  }
 
   th {
     background-color: $color-grey-450;
@@ -15,7 +20,7 @@
 
   th,
   td {
-    padding: 0.5rem;
+    padding: 1.2rem 1.5rem;
   }
 
   &__bottom-row {

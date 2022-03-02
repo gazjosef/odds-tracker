@@ -182,6 +182,7 @@ export default function Event({ eventObject }) {
     let result = isoDate.match(/\d\d:\d\d/);
     return result;
   };
+  console.log(eventObject);
 
   return (
     <table className="table">
