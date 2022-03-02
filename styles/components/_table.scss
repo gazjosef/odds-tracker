@@ -1,6 +1,9 @@
 .table {
   width: 100%;
+  border-bottom: 2px solid $color-primary-300;
   border-collapse: collapse;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
 
   font-size: 0.9em;
   text-align: center;

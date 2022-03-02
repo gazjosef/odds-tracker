@@ -46,6 +46,7 @@ export default function Home() {
     //   let apiData = await api_call.json();
     //   console.log("API forLoop", apiData);
     // }
+    console.log(data);
 
     creatEventObject(h2hData, spreadData, totalData);
 

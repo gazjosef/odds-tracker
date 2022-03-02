@@ -1,5 +1,7 @@
 .display-odds {
   background-color: $color-grey-650;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
 
   &__title {
     height: 7rem;
