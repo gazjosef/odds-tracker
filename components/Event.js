@@ -121,8 +121,6 @@ export default function Event({ eventObject }) {
       }
     }
 
-    // return bestBookmaker;
-
     return iconConverter(bestBookmaker);
   };
 
@@ -152,8 +150,19 @@ export default function Event({ eventObject }) {
 
   // * CONVERT FROM ISO TO DATE
 
-  const dateConverter = (date) => {
-    return date.substring(0, 10);
+  const dateConverter = (iso) => {
+    let date = new Date(iso);
+    let month = date.getMonth() + 1;
+    let dt = date.getDate();
+
+    if (dt < 10) {
+      dt = "0" + dt;
+    }
+    if (month < 10) {
+      month = "0" + month;
+    }
+
+    return dt + "-" + month;
   };
 
   // * COVERT TO ICON

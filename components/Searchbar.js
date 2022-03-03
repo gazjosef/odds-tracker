@@ -1,3 +1,5 @@
+import { FaSearch } from "react-icons/fa";
+
 export default function Search({
   data,
   sport,
@@ -27,7 +29,7 @@ export default function Search({
   return (
     <aside className="sidebar-search">
       <div className="sidebar-search__box">
-        <h1 className="sidebar-search__heading">Search</h1>
+        <h1 className="sidebar-search__heading">Finds Odds</h1>
         <select
           className="form-select"
           aria-label="Default select example"
@@ -57,7 +59,7 @@ export default function Search({
             })}
         </select>
         <button className="button" onClick={findOdds}>
-          Search
+          <FaSearch /> Search
         </button>
       </div>
     </aside>

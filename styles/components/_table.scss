@@ -8,8 +8,9 @@
   font-size: 0.9em;
   text-align: center;
 
-  thead tr {
-    font-weight: bold;
+  th,
+  td {
+    padding: 1.2rem 1.5rem;
   }
 
   th {
@@ -21,10 +22,13 @@
     color: $color-black;
   }
 
-  th,
-  td {
-    padding: 1.2rem 1.5rem;
+  tbody {
+    min-height: 100vh;
   }
+
+  // td + td {
+  //   border-left: 2px dotted $color-grey-450;
+  // }
 
   &__bottom-row {
     border-bottom: 0.5px solid $color-black;
