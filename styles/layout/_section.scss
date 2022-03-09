@@ -16,5 +16,10 @@
   }
 
   //   &__league {}
-  //   &__events {}
+  &__events {
+    background-color: $color-grey-250;
+    border-radius: 5px 5px 0 0;
+
+    min-height: 100vh;
+  }
 }
