@@ -1,14 +1,22 @@
+// import "dotenv/config"; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+// import express from "express";
+
 import { useState, useEffect } from "react";
 
 import Event from "@/components/Event";
+import Event2 from "@/components/Event2";
 import Searchbar from "@/components/Searchbar";
 
 import jsonData from "@/data/data.json";
 import h2hData from "@/data/h2hData.json";
 import spreadData from "@/data/spreadData.json";
 import totalData from "@/data/totalData.json";
+import upcomingData from "@/data/upcoming.json";
+import upcomingMarkets from "@/data/upcomingMarkets.json";
 
 export default function Home() {
+  const [events, setEvents] = useState([]);
+  // const [upcoming, setUpcoming] = useState();
   const [data, setData] = useState();
   const [sports, setSports] = useState([]);
   const [sport, selectSport] = useState([]);
@@ -19,17 +27,37 @@ export default function Home() {
   // * GET DATA
 
   useEffect(() => {
+    //* Load Odds
+    const loadOdds = async () => {
+      // let new_api_key = "0964ad4e3be969508766aef582e92012";
+      // let api_call = await fetch(
+      //   // `https://api.the-odds-api.com/v4/sports/upcoming/odds/?apiKey=${APIkey}&regions=au&markets=${market}`
+      //   `https://api.the-odds-api.com/v4/sports/upcoming/odds/?apiKey=${new_api_key}&markets=h2h,spreads,totals&regions=au`
+      // );
+      // let allMarkets = await api_call.json();
+      // console.log("API All Markets", allMarkets);
+      // setEvents(upcomingMarkets);
+      // console.log(upcomingMarkets);
+      setEvents(upcomingMarkets);
+      // if (upcoming) {
+      //   console.log(upcoming);
+      // }
+      // console.log(upcoming);
+    };
+    loadOdds();
+
+    // Get Odds
     const getOdds = () => {
       setData(jsonData);
     };
     getOdds();
 
     // SET SPORTS
-    if (data !== undefined && sports.length === 0) {
-      const allSports = data.map((event) => event.group);
-      const uniqueSports = [...new Set(allSports)];
+    if (data && sports.length === 0) {
+      const allTitles = data.map((event) => event.group);
+      const uniqueTitles = [...new Set(allTitles)];
 
-      setSports(uniqueSports);
+      setSports(uniqueTitles);
     }
   }, [data, sports.length]);
 
@@ -128,6 +156,7 @@ export default function Home() {
           <div className="display-odds__league"></div>
 
           <div className="display-odds__events">
+            <Event2 events={events} />
             <Event eventObject={eventObject} />
           </div>
         </section>

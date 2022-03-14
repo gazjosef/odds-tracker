@@ -1,0 +1,1562 @@
+[
+  {
+    "id": "cdfcda0db3dd7cde88f13b27f737cec8",
+    "sport_key": "icehockey_nhl",
+    "sport_title": "NHL",
+    "commence_time": "2022-03-14T02:00:00Z",
+    "home_team": "Los Angeles Kings",
+    "away_team": "Florida Panthers",
+    "bookmakers": [
+      {
+        "key": "unibet",
+        "title": "Unibet",
+        "last_update": "2022-03-14T04:11:03Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Florida Panthers",
+                "price": 1.1
+              },
+              {
+                "name": "Los Angeles Kings",
+                "price": 6.5
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "outcomes": [
+              {
+                "name": "Florida Panthers",
+                "price": 1.91,
+                "point": -1.5
+              },
+              {
+                "name": "Los Angeles Kings",
+                "price": 1.83,
+                "point": 1.5
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.55,
+                "point": 5
+              },
+              {
+                "name": "Under",
+                "price": 1.48,
+                "point": 5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betfair",
+        "title": "Betfair",
+        "last_update": "2022-03-14T04:10:32Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Florida Panthers",
+                "price": 1.11
+              },
+              {
+                "name": "Los Angeles Kings",
+                "price": 6.8
+              }
+            ]
+          },
+          {
+            "key": "h2h_lay",
+            "outcomes": [
+              {
+                "name": "Florida Panthers",
+                "price": 1.17
+              },
+              {
+                "name": "Los Angeles Kings",
+                "price": 10.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pointsbetau",
+        "title": "PointsBet (AU)",
+        "last_update": "2022-03-14T04:10:39Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Florida Panthers",
+                "price": 1.12
+              },
+              {
+                "name": "Los Angeles Kings",
+                "price": 6.3
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.5,
+                "point": 4.5
+              },
+              {
+                "name": "Under",
+                "price": 2.65,
+                "point": 4.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "tab",
+        "title": "TAB",
+        "last_update": "2022-03-14T04:10:55Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Florida Panthers",
+                "price": 1.1
+              },
+              {
+                "name": "Los Angeles Kings",
+                "price": 6.5
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "outcomes": [
+              {
+                "name": "Florida Panthers",
+                "price": 1.01,
+                "point": 1.5
+              },
+              {
+                "name": "Los Angeles Kings",
+                "price": 26,
+                "point": -1.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "de663d72158b21935be3575313aafb0c",
+    "sport_key": "icehockey_nhl",
+    "sport_title": "NHL",
+    "commence_time": "2022-03-14T02:00:00Z",
+    "home_team": "Vancouver Canucks",
+    "away_team": "Tampa Bay Lightning",
+    "bookmakers": [
+      {
+        "key": "unibet",
+        "title": "Unibet",
+        "last_update": "2022-03-14T04:11:03Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Tampa Bay Lightning",
+                "price": 1.16
+              },
+              {
+                "name": "Vancouver Canucks",
+                "price": 5
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "outcomes": [
+              {
+                "name": "Tampa Bay Lightning",
+                "price": 2.2,
+                "point": -1.5
+              },
+              {
+                "name": "Vancouver Canucks",
+                "price": 1.62,
+                "point": 1.5
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.45,
+                "point": 4.5
+              },
+              {
+                "name": "Under",
+                "price": 2.6,
+                "point": 4.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betfair",
+        "title": "Betfair",
+        "last_update": "2022-03-14T04:09:50Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Tampa Bay Lightning",
+                "price": 1.02
+              },
+              {
+                "name": "Vancouver Canucks",
+                "price": 12
+              }
+            ]
+          },
+          {
+            "key": "h2h_lay",
+            "outcomes": [
+              {
+                "name": "Tampa Bay Lightning",
+                "price": 1.09
+              },
+              {
+                "name": "Vancouver Canucks",
+                "price": 110
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pointsbetau",
+        "title": "PointsBet (AU)",
+        "last_update": "2022-03-14T04:10:39Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Tampa Bay Lightning",
+                "price": 1.15
+              },
+              {
+                "name": "Vancouver Canucks",
+                "price": 5.7
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.54,
+                "point": 4.5
+              },
+              {
+                "name": "Under",
+                "price": 2.55,
+                "point": 4.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "tab",
+        "title": "TAB",
+        "last_update": "2022-03-14T04:10:55Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Tampa Bay Lightning",
+                "price": 1.16
+              },
+              {
+                "name": "Vancouver Canucks",
+                "price": 5
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "outcomes": [
+              {
+                "name": "Tampa Bay Lightning",
+                "price": 1.01,
+                "point": 1.5
+              },
+              {
+                "name": "Vancouver Canucks",
+                "price": 26,
+                "point": -1.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2bba9c6011388c22df84fb45d8d60991",
+    "sport_key": "cricket_test_match",
+    "sport_title": "Test Matches",
+    "commence_time": "2022-03-14T05:00:00Z",
+    "home_team": "Pakistan",
+    "away_team": "Australia",
+    "bookmakers": [
+      {
+        "key": "unibet",
+        "title": "Unibet",
+        "last_update": "2022-03-14T04:10:29Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Australia",
+                "price": 2.88
+              },
+              {
+                "name": "Pakistan",
+                "price": 41
+              },
+              {
+                "name": "Draw",
+                "price": 1.45
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ladbrokes",
+        "title": "Ladbrokes",
+        "last_update": "2022-03-14T04:10:29Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Australia",
+                "price": 3
+              },
+              {
+                "name": "Pakistan",
+                "price": 34
+              },
+              {
+                "name": "Draw",
+                "price": 1.44
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "neds",
+        "title": "Neds",
+        "last_update": "2022-03-14T04:10:29Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Australia",
+                "price": 3
+              },
+              {
+                "name": "Pakistan",
+                "price": 34
+              },
+              {
+                "name": "Draw",
+                "price": 1.44
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "sportsbet",
+        "title": "SportsBet",
+        "last_update": "2022-03-14T04:11:05Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Australia",
+                "price": 2.8
+              },
+              {
+                "name": "Pakistan",
+                "price": 31
+              },
+              {
+                "name": "Draw",
+                "price": 1.47
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betfair",
+        "title": "Betfair",
+        "last_update": "2022-03-14T04:09:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Australia",
+                "price": 2.94
+              },
+              {
+                "name": "Pakistan",
+                "price": 55
+              },
+              {
+                "name": "Draw",
+                "price": 1.54
+              }
+            ]
+          },
+          {
+            "key": "h2h_lay",
+            "outcomes": [
+              {
+                "name": "Australia",
+                "price": 3
+              },
+              {
+                "name": "Pakistan",
+                "price": 70
+              },
+              {
+                "name": "Draw",
+                "price": 1.56
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "588a68be32093440f713fd5d1280a0f0",
+    "sport_key": "cricket_test_match",
+    "sport_title": "Test Matches",
+    "commence_time": "2022-03-14T08:30:00Z",
+    "home_team": "India",
+    "away_team": "Sri Lanka",
+    "bookmakers": [
+      {
+        "key": "sportsbet",
+        "title": "SportsBet",
+        "last_update": "2022-03-14T04:11:05Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "India",
+                "price": 1
+              },
+              {
+                "name": "Sri Lanka",
+                "price": 65
+              },
+              {
+                "name": "Draw",
+                "price": 501
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pointsbetau",
+        "title": "PointsBet (AU)",
+        "last_update": "2022-03-14T04:10:29Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "India",
+                "price": 1
+              },
+              {
+                "name": "Sri Lanka",
+                "price": 81
+              },
+              {
+                "name": "Draw",
+                "price": 501
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d6d42bf1615d21f7c300f0b76288efc3",
+    "sport_key": "soccer_turkey_super_league",
+    "sport_title": "Turkey Super League",
+    "commence_time": "2022-03-14T13:01:00Z",
+    "home_team": "Basaksehir",
+    "away_team": "Antalyaspor",
+    "bookmakers": [
+      {
+        "key": "sportsbet",
+        "title": "SportsBet",
+        "last_update": "2022-03-14T04:10:44Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Antalyaspor",
+                "price": 4.75
+              },
+              {
+                "name": "Basaksehir",
+                "price": 1.75
+              },
+              {
+                "name": "Draw",
+                "price": 3.3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ladbrokes",
+        "title": "Ladbrokes",
+        "last_update": "2022-03-14T04:10:48Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Antalyaspor",
+                "price": 4.6
+              },
+              {
+                "name": "Basaksehir",
+                "price": 1.7
+              },
+              {
+                "name": "Draw",
+                "price": 3.2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "neds",
+        "title": "Neds",
+        "last_update": "2022-03-14T04:10:50Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Antalyaspor",
+                "price": 4.6
+              },
+              {
+                "name": "Basaksehir",
+                "price": 1.7
+              },
+              {
+                "name": "Draw",
+                "price": 3.2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pointsbetau",
+        "title": "PointsBet (AU)",
+        "last_update": "2022-03-14T04:10:44Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Antalyaspor",
+                "price": 4.75
+              },
+              {
+                "name": "Basaksehir",
+                "price": 1.75
+              },
+              {
+                "name": "Draw",
+                "price": 3.45
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "tab",
+        "title": "TAB",
+        "last_update": "2022-03-14T04:10:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Antalyaspor",
+                "price": 4.5
+              },
+              {
+                "name": "Basaksehir",
+                "price": 1.75
+              },
+              {
+                "name": "Draw",
+                "price": 3.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betfair",
+        "title": "Betfair",
+        "last_update": "2022-03-14T04:10:45Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Antalyaspor",
+                "price": 5.2
+              },
+              {
+                "name": "Basaksehir",
+                "price": 1.84
+              },
+              {
+                "name": "Draw",
+                "price": 3.5
+              }
+            ]
+          },
+          {
+            "key": "h2h_lay",
+            "outcomes": [
+              {
+                "name": "Antalyaspor",
+                "price": 5.6
+              },
+              {
+                "name": "Basaksehir",
+                "price": 1.91
+              },
+              {
+                "name": "Draw",
+                "price": 3.7
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "unibet",
+        "title": "Unibet",
+        "last_update": "2022-03-14T04:10:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Antalyaspor",
+                "price": 4.8
+              },
+              {
+                "name": "Basaksehir",
+                "price": 1.72
+              },
+              {
+                "name": "Draw",
+                "price": 3.5
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.17,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.68,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "e963133037d22d06281856ad339bdaf4",
+    "sport_key": "soccer_turkey_super_league",
+    "sport_title": "Turkey Super League",
+    "commence_time": "2022-03-14T17:00:00Z",
+    "home_team": "Galatasaray",
+    "away_team": "Besiktas JK",
+    "bookmakers": [
+      {
+        "key": "sportsbet",
+        "title": "SportsBet",
+        "last_update": "2022-03-14T04:10:44Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Besiktas JK",
+                "price": 2.7
+              },
+              {
+                "name": "Galatasaray",
+                "price": 2.45
+              },
+              {
+                "name": "Draw",
+                "price": 3.3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "tab",
+        "title": "TAB",
+        "last_update": "2022-03-14T04:10:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Besiktas JK",
+                "price": 2.7
+              },
+              {
+                "name": "Galatasaray",
+                "price": 2.4
+              },
+              {
+                "name": "Draw",
+                "price": 3.3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betfair",
+        "title": "Betfair",
+        "last_update": "2022-03-14T04:10:45Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Besiktas JK",
+                "price": 2.8
+              },
+              {
+                "name": "Galatasaray",
+                "price": 2.58
+              },
+              {
+                "name": "Draw",
+                "price": 3.6
+              }
+            ]
+          },
+          {
+            "key": "h2h_lay",
+            "outcomes": [
+              {
+                "name": "Besiktas JK",
+                "price": 2.9
+              },
+              {
+                "name": "Galatasaray",
+                "price": 2.7
+              },
+              {
+                "name": "Draw",
+                "price": 3.75
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "unibet",
+        "title": "Unibet",
+        "last_update": "2022-03-14T04:10:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Besiktas JK",
+                "price": 2.7
+              },
+              {
+                "name": "Galatasaray",
+                "price": 2.43
+              },
+              {
+                "name": "Draw",
+                "price": 3.4
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.75,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 2.08,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pointsbetau",
+        "title": "PointsBet (AU)",
+        "last_update": "2022-03-14T04:10:44Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Besiktas JK",
+                "price": 2.75
+              },
+              {
+                "name": "Galatasaray",
+                "price": 2.45
+              },
+              {
+                "name": "Draw",
+                "price": 3.35
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ladbrokes",
+        "title": "Ladbrokes",
+        "last_update": "2022-03-14T04:10:48Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Besiktas JK",
+                "price": 2.63
+              },
+              {
+                "name": "Galatasaray",
+                "price": 2.35
+              },
+              {
+                "name": "Draw",
+                "price": 3.2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "neds",
+        "title": "Neds",
+        "last_update": "2022-03-14T04:10:50Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Besiktas JK",
+                "price": 2.63
+              },
+              {
+                "name": "Galatasaray",
+                "price": 2.35
+              },
+              {
+                "name": "Draw",
+                "price": 3.2
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3258f873cbcaa5f5ea3b72a9653a6ec8",
+    "sport_key": "soccer_turkey_super_league",
+    "sport_title": "Turkey Super League",
+    "commence_time": "2022-03-14T17:00:00Z",
+    "home_team": "Giresunspor",
+    "away_team": "Gazişehir Gaziantep",
+    "bookmakers": [
+      {
+        "key": "sportsbet",
+        "title": "SportsBet",
+        "last_update": "2022-03-14T04:10:44Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Gazişehir Gaziantep",
+                "price": 3.1
+              },
+              {
+                "name": "Giresunspor",
+                "price": 2.25
+              },
+              {
+                "name": "Draw",
+                "price": 3.25
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betfair",
+        "title": "Betfair",
+        "last_update": "2022-03-14T04:10:45Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Gazişehir Gaziantep",
+                "price": 3.5
+              },
+              {
+                "name": "Giresunspor",
+                "price": 2.28
+              },
+              {
+                "name": "Draw",
+                "price": 3.35
+              }
+            ]
+          },
+          {
+            "key": "h2h_lay",
+            "outcomes": [
+              {
+                "name": "Gazişehir Gaziantep",
+                "price": 3.7
+              },
+              {
+                "name": "Giresunspor",
+                "price": 2.42
+              },
+              {
+                "name": "Draw",
+                "price": 3.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "unibet",
+        "title": "Unibet",
+        "last_update": "2022-03-14T04:10:40Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Gazişehir Gaziantep",
+                "price": 3.1
+              },
+              {
+                "name": "Giresunspor",
+                "price": 2.28
+              },
+              {
+                "name": "Draw",
+                "price": 3.2
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 2.06,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.76,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pointsbetau",
+        "title": "PointsBet (AU)",
+        "last_update": "2022-03-14T04:10:44Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Gazişehir Gaziantep",
+                "price": 3.15
+              },
+              {
+                "name": "Giresunspor",
+                "price": 2.25
+              },
+              {
+                "name": "Draw",
+                "price": 3.25
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "60aeab96490b3f4f0a423267ca45f6ce",
+    "sport_key": "soccer_denmark_superliga",
+    "sport_title": "Denmark Superliga",
+    "commence_time": "2022-03-14T18:00:00Z",
+    "home_team": "OB Odense BK",
+    "away_team": "AaB",
+    "bookmakers": [
+      {
+        "key": "unibet",
+        "title": "Unibet",
+        "last_update": "2022-03-14T04:10:44Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "AaB",
+                "price": 3
+              },
+              {
+                "name": "OB Odense BK",
+                "price": 2.25
+              },
+              {
+                "name": "Draw",
+                "price": 3.35
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.85,
+                "point": 2.5
+              },
+              {
+                "name": "Under",
+                "price": 1.96,
+                "point": 2.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "sportsbet",
+        "title": "SportsBet",
+        "last_update": "2022-03-14T04:10:44Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "AaB",
+                "price": 3
+              },
+              {
+                "name": "OB Odense BK",
+                "price": 2.25
+              },
+              {
+                "name": "Draw",
+                "price": 3.4
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ladbrokes",
+        "title": "Ladbrokes",
+        "last_update": "2022-03-14T04:10:45Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "AaB",
+                "price": 2.9
+              },
+              {
+                "name": "OB Odense BK",
+                "price": 2.25
+              },
+              {
+                "name": "Draw",
+                "price": 3.2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "neds",
+        "title": "Neds",
+        "last_update": "2022-03-14T04:10:45Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "AaB",
+                "price": 2.9
+              },
+              {
+                "name": "OB Odense BK",
+                "price": 2.25
+              },
+              {
+                "name": "Draw",
+                "price": 3.2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betfair",
+        "title": "Betfair",
+        "last_update": "2022-03-14T04:05:24Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "AaB",
+                "price": 3.1
+              },
+              {
+                "name": "OB Odense BK",
+                "price": 2.42
+              },
+              {
+                "name": "Draw",
+                "price": 3.5
+              }
+            ]
+          },
+          {
+            "key": "h2h_lay",
+            "outcomes": [
+              {
+                "name": "AaB",
+                "price": 3.25
+              },
+              {
+                "name": "OB Odense BK",
+                "price": 2.5
+              },
+              {
+                "name": "Draw",
+                "price": 3.7
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "pointsbetau",
+        "title": "PointsBet (AU)",
+        "last_update": "2022-03-14T04:05:19Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "AaB",
+                "price": 3
+              },
+              {
+                "name": "OB Odense BK",
+                "price": 2.3
+              },
+              {
+                "name": "Draw",
+                "price": 3.35
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d29f151761d6bf170ebff3fc7277de93",
+    "sport_key": "icehockey_sweden_allsvenskan",
+    "sport_title": "HockeyAllsvenskan",
+    "commence_time": "2022-03-14T18:00:00Z",
+    "home_team": "Västerviks IK",
+    "away_team": "BIK Karlskoga",
+    "bookmakers": [
+      {
+        "key": "unibet",
+        "title": "Unibet",
+        "last_update": "2022-03-14T04:09:37Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "BIK Karlskoga",
+                "price": 2.2
+              },
+              {
+                "name": "Västerviks IK",
+                "price": 2.7
+              },
+              {
+                "name": "Draw",
+                "price": 4.25
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "outcomes": [
+              {
+                "name": "BIK Karlskoga",
+                "price": 2.7,
+                "point": -1
+              },
+              {
+                "name": "Västerviks IK",
+                "price": 1.47,
+                "point": 1
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.97,
+                "point": 5
+              },
+              {
+                "name": "Under",
+                "price": 1.84,
+                "point": 5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "sportsbet",
+        "title": "SportsBet",
+        "last_update": "2022-03-14T04:09:37Z",
+        "markets": [
+          {
+            "key": "spreads",
+            "outcomes": [
+              {
+                "name": "BIK Karlskoga",
+                "price": 2.09,
+                "point": -0.5
+              },
+              {
+                "name": "Västerviks IK",
+                "price": 1.66,
+                "point": 0.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ladbrokes",
+        "title": "Ladbrokes",
+        "last_update": "2022-03-14T04:09:37Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "BIK Karlskoga",
+                "price": 1.67
+              },
+              {
+                "name": "Västerviks IK",
+                "price": 2.1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "neds",
+        "title": "Neds",
+        "last_update": "2022-03-14T04:09:37Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "BIK Karlskoga",
+                "price": 1.67
+              },
+              {
+                "name": "Västerviks IK",
+                "price": 2.1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c86a19844ec7e074485e9e4e4dfe62fa",
+    "sport_key": "icehockey_sweden_hockey_league",
+    "sport_title": "SHL",
+    "commence_time": "2022-03-14T18:00:00Z",
+    "home_team": "Timrå IK",
+    "away_team": "Luleå HF",
+    "bookmakers": [
+      {
+        "key": "sportsbet",
+        "title": "SportsBet",
+        "last_update": "2022-03-14T04:07:30Z",
+        "markets": [
+          {
+            "key": "spreads",
+            "outcomes": [
+              {
+                "name": "Luleå HF",
+                "price": 1.79,
+                "point": -0.5
+              },
+              {
+                "name": "Timrå IK",
+                "price": 1.91,
+                "point": 0.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "betfair",
+        "title": "Betfair",
+        "last_update": "2022-03-14T04:07:32Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Luleå HF",
+                "price": 1.55
+              },
+              {
+                "name": "Timrå IK",
+                "price": 2.58
+              }
+            ]
+          },
+          {
+            "key": "h2h_lay",
+            "outcomes": [
+              {
+                "name": "Luleå HF",
+                "price": 1.64
+              },
+              {
+                "name": "Timrå IK",
+                "price": 2.82
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ladbrokes",
+        "title": "Ladbrokes",
+        "last_update": "2022-03-14T04:07:31Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Luleå HF",
+                "price": 1.48
+              },
+              {
+                "name": "Timrå IK",
+                "price": 2.45
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "neds",
+        "title": "Neds",
+        "last_update": "2022-03-14T04:07:31Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Luleå HF",
+                "price": 1.48
+              },
+              {
+                "name": "Timrå IK",
+                "price": 2.45
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "unibet",
+        "title": "Unibet",
+        "last_update": "2022-03-14T04:07:24Z",
+        "markets": [
+          {
+            "key": "h2h",
+            "outcomes": [
+              {
+                "name": "Luleå HF",
+                "price": 1.84
+              },
+              {
+                "name": "Timrå IK",
+                "price": 3.4
+              },
+              {
+                "name": "Draw",
+                "price": 4.4
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "outcomes": [
+              {
+                "name": "Luleå HF",
+                "price": 2.15,
+                "point": -1
+              },
+              {
+                "name": "Timrå IK",
+                "price": 1.74,
+                "point": 1
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "outcomes": [
+              {
+                "name": "Over",
+                "price": 1.94,
+                "point": 5.5
+              },
+              {
+                "name": "Under",
+                "price": 1.9,
+                "point": 5.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
