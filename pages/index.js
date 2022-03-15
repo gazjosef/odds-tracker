@@ -46,7 +46,7 @@ export default function Home() {
     };
     loadOdds();
 
-    // Get Odds
+    //* Get Odds
     const getOdds = () => {
       setData(jsonData);
     };
@@ -161,6 +161,11 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <article className="article-display-odds">
+        <div className="article-display-odds__title">
+          <h1>Upcoming Events</h1>
+        </div>
+      </article>
       <aside className="aside">
         <Searchbar
           data={data}
