@@ -1,20 +1,13 @@
-.home {
-  padding: 2rem;
-
-  grid-column: 2 / span 4;
-}
-
 .article-display-odds {
   padding: 2rem;
 
-  grid-row: 2 / span 1;
   grid-column: 2 / span 4;
 
   &__title {
     background-color: $color-grey-650;
     border-radius: 5px 5px 0 0;
-    overflow: hidden;
     height: 7rem;
+    overflow: hidden;
     padding-left: 2rem;
 
     display: flex;

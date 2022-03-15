@@ -146,26 +146,15 @@ export default function Home() {
   };
 
   return (
-    <div className="container">
-      <main className="home">
-        <section className="display-odds">
-          <div>
-            <h1 className="display-odds__title">Upcoming Events</h1>
-          </div>
-
-          <div className="display-odds__league"></div>
-
-          <div className="display-odds__events">
-            <Event2 events={events} />
-            <Event eventObject={eventObject} />
-          </div>
-        </section>
-      </main>
+    <main className="container">
       <article className="article-display-odds">
-        <div className="article-display-odds__title">
+        <section className="article-display-odds__title">
           <h1>Upcoming Events</h1>
-        </div>
-        <div className="article-display-odds__events"></div>
+        </section>
+        <section className="article-display-odds__events">
+          <Event2 events={events} />
+          <Event eventObject={eventObject} />
+        </section>
       </article>
       <aside className="aside">
         <Searchbar
@@ -177,6 +166,6 @@ export default function Home() {
           selectLeague={selectLeague}
         />
       </aside>
-    </div>
+    </main>
   );
 }
