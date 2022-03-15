@@ -5,6 +5,29 @@
 }
 
 .article-display-odds {
+  padding: 2rem;
+
   grid-row: 2 / span 1;
   grid-column: 2 / span 4;
+
+  &__title {
+    background-color: $color-grey-650;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    height: 7rem;
+    padding-left: 2rem;
+
+    display: flex;
+    align-items: center;
+
+    font-family: $font-secondary;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  &__events {
+    background-color: $color-grey-250;
+    border-radius: 5px 5px 0 0;
+    min-height: 100vh;
+  }
 }

@@ -143,7 +143,7 @@ function Event2({ events }) {
         (item) => item.key === "spreads"
       );
       if (homeArray !== undefined) {
-        // console.log(homeArray);
+        console.log("bestHomeSpreadBookmaker", homeArray);
         // if (homeArray.outcomes[0].price > bestPrice) {
         //   bestHomeSpread = homeArray.outcomes[0].point;
         //   bestPrice = homeArray.outcomes[0].price;

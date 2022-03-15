@@ -165,6 +165,7 @@ export default function Home() {
         <div className="article-display-odds__title">
           <h1>Upcoming Events</h1>
         </div>
+        <div className="article-display-odds__events"></div>
       </article>
       <aside className="aside">
         <Searchbar
