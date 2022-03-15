@@ -287,15 +287,21 @@ function Event2({ events }) {
           return (
             <tbody key={key}>
               <tr>
-                <td rowSpan="3">{dateConverter(events.commence_time)}</td>
-                <td rowSpan="3">{timeConverter(events.commence_time)}</td>
-                <td rowSpan="3">{events.sport_title}</td>
-                <td>{events.home_team}</td>
+                <td rowSpan="3" className="table__border-right">
+                  {dateConverter(events.commence_time)}
+                </td>
+                <td rowSpan="3" className="table__border-right">
+                  {timeConverter(events.commence_time)}
+                </td>
+                <td rowSpan="3" className="table__border-right">
+                  {events.sport_title}
+                </td>
+                <td className="table__border-right">{events.home_team}</td>
                 <td>
                   {bestHomeSpreadBookmaker(events.bookmakers)}
                   {/* {bestDrawBookmaker(events.bookmakers)} */}
                 </td>
-                <td>
+                <td className="table__border-right">
                   {bestHomeSpread(events.bookmakers)}
                   {/* {bestDrawBookmaker(events.bookmakers)} */}
                 </td>
@@ -303,7 +309,7 @@ function Event2({ events }) {
                   {bestHomeTotalBookmaker(events.bookmakers)}
                   {/* {bestDrawBookmaker(events.bookmakers)} */}
                 </td>
-                <td>
+                <td className="table__border-right">
                   {bestHomeTotal(events.bookmakers)}
                   {/* {bestDrawBookmaker(events.bookmakers)} */}
                 </td>
@@ -311,12 +317,12 @@ function Event2({ events }) {
                 <td>{bestHomeOdds(events.bookmakers)}</td>
               </tr>
               <tr>
-                <td>{events.away_team}</td>
+                <td className="table__border-right">{events.away_team}</td>
                 <td>
                   {bestAwaySpreadsBookmaker(events.bookmakers)}
                   {/* {bestDrawBookmaker(events.bookmakers)} */}
                 </td>
-                <td>
+                <td className="table__border-right">
                   {bestAwaySpreads(events.bookmakers)}
                   {/* {bestDrawBookmaker(events.bookmakers)} */}
                 </td>
@@ -324,19 +330,19 @@ function Event2({ events }) {
                   {bestAwayTotalBookmaker(events.bookmakers)}
                   {/* {bestDrawBookmaker(events.bookmakers)} */}
                 </td>
-                <td>
+                <td className="table__border-right">
                   {bestAwayTotal(events.bookmakers)}
                   {/* {bestDrawBookmaker(events.bookmakers)} */}
                 </td>
                 <td>{bestAwayBookmaker(events.bookmakers)}</td>
                 <td>{bestAwayOdds(events.bookmakers)}</td>
               </tr>
-              <tr className="table__bottom-row">
-                <td>Draw</td>
+              <tr className="table__border-bottom">
+                <td className="table__border-right">Draw</td>
                 <td></td>
+                <td className="table__border-right"></td>
                 <td></td>
-                <td></td>
-                <td></td>
+                <td className="table__border-right"></td>
                 <td>{bestDrawBookmaker(events.bookmakers)}</td>
                 <td>{bestDrawOdds(events.bookmakers)}</td>
               </tr>
@@ -346,15 +352,21 @@ function Event2({ events }) {
           return (
             <tbody key={key}>
               <tr>
-                <td rowSpan="2">{dateConverter(events.commence_time)}</td>
-                <td rowSpan="2">{timeConverter(events.commence_time)}</td>
-                <td rowSpan="2">{events.sport_title}</td>
-                <td>{events.home_team}</td>
+                <td rowSpan="2" className="table__border-right">
+                  {dateConverter(events.commence_time)}
+                </td>
+                <td rowSpan="2" className="table__border-right">
+                  {timeConverter(events.commence_time)}
+                </td>
+                <td rowSpan="2" className="table__border-right">
+                  {events.sport_title}
+                </td>
+                <td className="table__border-right">{events.home_team}</td>
                 <td>
                   {bestHomeSpreadBookmaker(events.bookmakers)}
                   {/* {bestDrawBookmaker(events.bookmakers)} */}
                 </td>
-                <td>
+                <td className="table__border-right">
                   {bestHomeSpread(events.bookmakers)}
                   {/* {bestDrawBookmaker(events.bookmakers)} */}
                 </td>
@@ -362,20 +374,20 @@ function Event2({ events }) {
                   {bestHomeTotalBookmaker(events.bookmakers)}
                   {/* {bestDrawBookmaker(events.bookmakers)} */}
                 </td>
-                <td>
+                <td className="table__border-right">
                   {bestHomeTotal(events.bookmakers)}
                   {/* {bestDrawBookmaker(events.bookmakers)} */}
                 </td>
                 <td>{bestHomeOddsBookmaker(events.bookmakers)}</td>
                 <td>{bestHomeOdds(events.bookmakers)}</td>
               </tr>
-              <tr className="table__bottom-row">
-                <td>{events.away_team}</td>
+              <tr className="table__border-bottom">
+                <td className="table__border-right">{events.away_team}</td>
                 <td>
                   {bestAwaySpreadsBookmaker(events.bookmakers)}
                   {/* {bestDrawBookmaker(events.bookmakers)} */}
                 </td>
-                <td>
+                <td className="table__border-right">
                   {bestAwaySpreads(events.bookmakers)}
                   {/* {bestDrawBookmaker(events.bookmakers)} */}
                 </td>
@@ -383,7 +395,7 @@ function Event2({ events }) {
                   {bestAwayTotalBookmaker(events.bookmakers)}
                   {/* {bestDrawBookmaker(events.bookmakers)} */}
                 </td>
-                <td>
+                <td className="table__border-right">
                   {bestAwayTotal(events.bookmakers)}
                   {/* {bestDrawBookmaker(events.bookmakers)} */}
                 </td>
