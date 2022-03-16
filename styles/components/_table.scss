@@ -1,9 +1,9 @@
 .table {
-  width: 100%;
   border-bottom: 2px solid $color-primary-300;
   border-collapse: collapse;
   border-radius: 5px 5px 0 0;
   overflow: hidden;
+  width: 100%;
 
   font-size: 0.85em;
   text-align: center;
@@ -27,10 +27,6 @@
   tbody {
     min-height: 100vh;
   }
-
-  // td + td {
-  //   border-left: 2px dotted $color-grey-450;
-  // }
 
   &__border-right {
     border-right: 0.5px dotted $color-black;

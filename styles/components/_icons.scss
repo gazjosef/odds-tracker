@@ -3,11 +3,11 @@
 
   text-align: center;
 
-  -webkit-transform: rotate(90deg) scale(0.7);
-  -moz-transform: rotate(90deg) scale(0.7);
-  -o-transform: rotate(90deg) scale(0.7);
-  -ms-transform: rotate(90deg) scale(0.7);
-  transform: rotate(90deg) scale(0.7);
+  -webkit-transform: rotate(90deg) scale(0.7) translateY(-1.5rem);
+  -moz-transform: rotate(90deg) scale(0.7) translateY(-1.5rem);
+  -o-transform: rotate(90deg) scale(0.7) translateY(-1.5rem);
+  -ms-transform: rotate(90deg) scale(0.7) translateY(-1.5rem);
+  transform: rotate(90deg) scale(0.7) translateY(-1.5rem);
 
   &--neds {
     background-color: orangered;
