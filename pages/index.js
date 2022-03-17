@@ -3,14 +3,9 @@
 
 import { useState, useEffect } from "react";
 
-import Event2 from "@/components/Event2";
+import Event from "@/components/Event";
 import Searchbar from "@/components/Searchbar";
 
-// import jsonData from "@/data/data.json";
-// import h2hData from "@/data/h2hData.json";
-// import spreadData from "@/data/spreadData.json";
-// import totalData from "@/data/totalData.json";
-// import upcomingData from "@/data/upcoming.json";
 import upcomingMarkets from "@/data/upcomingMarkets.json";
 
 export default function Home() {
@@ -124,7 +119,7 @@ export default function Home() {
           <h1>Upcoming Events</h1>
         </section>
         <section className="article-display-odds__events">
-          <Event2 events={events} />
+          <Event events={events} />
         </section>
       </article>
       <aside className="aside">

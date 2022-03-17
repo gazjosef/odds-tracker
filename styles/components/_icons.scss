@@ -9,6 +9,14 @@
   -ms-transform: rotate(90deg) scale(0.7) translateY(-1.5rem);
   transform: rotate(90deg) scale(0.7) translateY(-1.5rem);
 
+  @include respond(big-desktop) {
+    -webkit-transform: rotate(90deg) scale(0.7) translateY(-2.5rem);
+    -moz-transform: rotate(90deg) scale(0.7) translateY(-2.5rem);
+    -o-transform: rotate(90deg) scale(0.7) translateY(-2.5rem);
+    -ms-transform: rotate(90deg) scale(0.7) translateY(-2.5rem);
+    transform: rotate(90deg) scale(0.7) translateY(-2.5rem);
+  }
+
   &--neds {
     background-color: orangered;
   }
