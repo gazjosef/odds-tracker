@@ -3,147 +3,119 @@
 
 import { useState, useEffect } from "react";
 
-import Event from "@/components/Event";
 import Event2 from "@/components/Event2";
 import Searchbar from "@/components/Searchbar";
 
-import jsonData from "@/data/data.json";
-import h2hData from "@/data/h2hData.json";
-import spreadData from "@/data/spreadData.json";
-import totalData from "@/data/totalData.json";
-import upcomingData from "@/data/upcoming.json";
+// import jsonData from "@/data/data.json";
+// import h2hData from "@/data/h2hData.json";
+// import spreadData from "@/data/spreadData.json";
+// import totalData from "@/data/totalData.json";
+// import upcomingData from "@/data/upcoming.json";
 import upcomingMarkets from "@/data/upcomingMarkets.json";
 
 export default function Home() {
-  const [events, setEvents] = useState([]);
-  // const [upcoming, setUpcoming] = useState();
-  const [data, setData] = useState();
+  const [events, setEvents] = useState(upcomingMarkets);
+  const [upcoming, setUpcoming] = useState();
   const [sports, setSports] = useState([]);
+  // Select Sports & League
   const [sport, selectSport] = useState([]);
+  const [league, selectLeague] = useState("upcoming");
 
-  const [league, selectLeague] = useState([]);
-  const [eventObject, setEventObject] = useState([]);
+  const axios = require("axios");
+  // const apiKey = "YOUR_API_KEY";
+  const apiKey = "0964ad4e3be969508766aef582e92012";
+  const sportKey = "upcoming"; // use the sport_key from the /sports endpoint below, or use 'upcoming' to see the next 8 games across all sports
+  const regions = "au"; // uk | us | eu | au. Multiple can be specified if comma delimited
+  // const markets = "h2h,spreads,totals"; // h2h | spreads | totals. Multiple can be specified if comma delimited
+  const markets = "h2h"; // h2h | spreads | totals. Multiple can be specified if comma delimited
+  const oddsFormat = "decimal"; // decimal | american
+  const dateFormat = "iso"; // iso | unix
 
   // * GET DATA
 
   useEffect(() => {
-    //* Load Odds
-    const loadOdds = async () => {
-      // let new_api_key = "0964ad4e3be969508766aef582e92012";
-      // let api_call = await fetch(
-      //   // `https://api.the-odds-api.com/v4/sports/upcoming/odds/?apiKey=${APIkey}&regions=au&markets=${market}`
-      //   `https://api.the-odds-api.com/v4/sports/upcoming/odds/?apiKey=${new_api_key}&markets=h2h,spreads,totals&regions=au`
-      // );
-      // let allMarkets = await api_call.json();
-      // console.log("API All Markets", allMarkets);
-      // setEvents(upcomingMarkets);
-      // console.log(upcomingMarkets);
-      setEvents(upcomingMarkets);
-      // if (upcoming) {
-      //   console.log(upcoming);
-      // }
-      // console.log(upcoming);
-    };
-    loadOdds();
+    /*
+    First get a list of in-season sports
+        the sport 'key' from the response can be used to get odds in the next request
 
-    //* Get Odds
-    const getOdds = () => {
-      setData(jsonData);
-    };
-    getOdds();
+*/
+    axios
+      .get("https://api.the-odds-api.com/v4/sports/?outrights=false", {
+        params: {
+          apiKey,
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+        // Set Upcoming Events
+        setUpcoming(response.data);
+        // Check your usage
+        console.log(
+          "Remaining requests",
+          response.headers["x-requests-remaining"]
+        );
+        console.log("Used requests", response.headers["x-requests-used"]);
+      })
+      .catch((error) => {
+        console.log("Error status", error.response.status);
+        console.log(error.response.data);
+      });
 
+    console.log("Axios Ran");
+  }, []);
+
+  useEffect(() => {
     // SET SPORTS
-    if (data && sports.length === 0) {
-      const allTitles = data.map((event) => event.group);
+    if (upcoming && sports.length === 0) {
+      const allTitles = upcoming.map((event) => {
+        if (event.has_outrights === false) {
+          return event.group;
+        }
+      });
+      console.log("allTitles", allTitles);
       const uniqueTitles = [...new Set(allTitles)];
 
       setSports(uniqueTitles);
     }
-  }, [data, sports.length]);
+  }, [upcoming, sports.length]);
 
   // * FIND ODDS
 
   const findOdds = async (e) => {
-    // e.preventDefault();
-    // const markets = ["h2h", "spreads", "totals"];
-    // for (let i = 0; i < markets.length; i++) {
-    //   let market = markets[i];
-    //   let api_call = await fetch(
-    //     `https://api.the-odds-api.com/v4/sports/upcoming/odds/?apiKey=${APIkey}&regions=au&markets=${market}`
-    //   );
-    //   let apiData = await api_call.json();
-    //   console.log("API forLoop", apiData);
-    // }
-    console.log(data);
+    e.preventDefault();
 
-    creatEventObject(h2hData, spreadData, totalData);
+    axios
+      .get(`https://api.the-odds-api.com/v4/sports/${league}/odds`, {
+        params: {
+          apiKey,
+          regions,
+          markets,
+          oddsFormat,
+          dateFormat,
+        },
+      })
+      .then((response) => {
+        console.log("Find Matches", response.data);
+        // Set Events
+        setEvents(response.data);
 
-    console.warn("creatEventObject Completed");
-  };
-
-  // * CREATE EVENT OBJECT
-
-  const creatEventObject = (h2h, spread, total) => {
-    // Clear Event Objet
-    setEventObject([]);
-
-    // Create New Object
-    const newObject = [];
-
-    // * LOOP THROUGH H2H DATA
-    h2h.forEach((event) => {
-      // Map Bookmmakes
-      let h2hBookmakers = event.bookmakers.map((bookmaker) => {
-        return bookmaker;
+        // Check your usage
+        console.log(
+          "Remaining requests",
+          response.headers["x-requests-remaining"]
+        );
+        console.log("Used requests", response.headers["x-requests-used"]);
+      })
+      .catch((error) => {
+        console.log("Error status", error.response.status);
+        console.log(error.response.data);
       });
 
-      // * CREATE EVENT DETAILS
-      let eventDetails = {
-        id: event.id,
-        sports_title: event.sport_title,
-        away_team: event.away_team,
-        home_team: event.home_team,
-        commence_time: event.commence_time,
-        h2h: h2hBookmakers,
-        spread: [],
-        total: [],
-      };
-
-      newObject.push(eventDetails);
-    });
-
-    // * LOOP THROUGH SPREAD DATA
-    spread.forEach((fixture) => {
-      // Find same event
-      let event = newObject.find((event) => event.id === fixture.id);
-
-      // Avoid undefined error message
-      if (event !== undefined) {
-        // Add Spread Odds
-        fixture.bookmakers.map((bookmaker) => {
-          return event.spread.push(bookmaker);
-        });
-      }
-    });
-
-    // * LOOP THROUGH TOTAL DATA
-    total.forEach((fixture) => {
-      // Find same event
-      let event = newObject.find((event) => event.id === fixture.id);
-
-      // Avoid undefined error message
-      if (event !== undefined) {
-        // Add Spread Odds
-        fixture.bookmakers.map((bookmaker) => {
-          return event.total.push(bookmaker);
-        });
-      }
-    });
-
-    setEventObject(newObject);
-
-    console.warn("Set Event Object Completed");
+    console.log("Select League", league);
   };
+
+  console.log("upcoming", upcoming);
+  console.log("events", events);
 
   return (
     <main className="container">
@@ -153,12 +125,11 @@ export default function Home() {
         </section>
         <section className="article-display-odds__events">
           <Event2 events={events} />
-          <Event eventObject={eventObject} />
         </section>
       </article>
       <aside className="aside">
         <Searchbar
-          data={data}
+          data={upcoming}
           sport={sport}
           sports={sports}
           findOdds={findOdds}
