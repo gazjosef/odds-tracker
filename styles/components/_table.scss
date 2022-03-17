@@ -14,11 +14,7 @@
 
   th,
   td {
-    padding: 1rem 1.25rem;
-
-    @include respond(big-desktop) {
-      padding: 0.75rem 1rem;
-    }
+    padding: 0.75rem 1rem;
   }
 
   th {
