@@ -109,8 +109,8 @@ export default function Home() {
     console.log("Select League", league);
   };
 
-  console.log("upcoming", upcoming);
-  console.log("events", events);
+  // console.log("upcoming", upcoming);
+  // console.log("events", events);
 
   return (
     <main className="container">
