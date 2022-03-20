@@ -21,19 +21,13 @@ export default function Home() {
   const apiKey = "0964ad4e3be969508766aef582e92012";
   const sportKey = "upcoming"; // use the sport_key from the /sports endpoint below, or use 'upcoming' to see the next 8 games across all sports
   const regions = "au"; // uk | us | eu | au. Multiple can be specified if comma delimited
-  // const markets = "h2h,spreads,totals"; // h2h | spreads | totals. Multiple can be specified if comma delimited
-  const markets = "h2h"; // h2h | spreads | totals. Multiple can be specified if comma delimited
+  const markets = "h2h,spreads,totals"; // h2h | spreads | totals. Multiple can be specified if comma delimited
   const oddsFormat = "decimal"; // decimal | american
   const dateFormat = "iso"; // iso | unix
 
   // * GET DATA
 
   useEffect(() => {
-    /*
-    First get a list of in-season sports
-        the sport 'key' from the response can be used to get odds in the next request
-
-*/
     axios
       .get("https://api.the-odds-api.com/v4/sports/?outrights=false", {
         params: {
@@ -60,7 +54,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    // SET SPORTS
+    // Set Sports in Sidebar
     if (upcoming && sports.length === 0) {
       const allTitles = upcoming.map((event) => {
         if (event.has_outrights === false) {
@@ -105,12 +99,7 @@ export default function Home() {
         console.log("Error status", error.response.status);
         console.log(error.response.data);
       });
-
-    console.log("Select League", league);
   };
-
-  // console.log("upcoming", upcoming);
-  // console.log("events", events);
 
   return (
     <main className="container">

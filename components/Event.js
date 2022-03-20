@@ -11,10 +11,6 @@ import Tab from "@/svg/tab.svg";
 import Unibet from "@/svg/unibet.svg";
 
 function Event({ events }) {
-  //   if (events.length !== 0) {
-  //     console.warn("ran", events);
-  //   }
-
   //* CONVERT FROM ISO TO DATE
 
   const dateConverter = (iso) => {
