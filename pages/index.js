@@ -7,7 +7,6 @@ import Event from "@/components/Event";
 import Searchbar from "@/components/Searchbar";
 
 import upcomingMarkets from "@/data/upcomingMarkets.json";
-import nrlData from "@/data/nrlData.json";
 
 export default function Home() {
   const [events, setEvents] = useState(upcomingMarkets);
@@ -18,12 +17,10 @@ export default function Home() {
   const [league, selectLeague] = useState("upcoming");
 
   const axios = require("axios");
-  // const apiKey = "YOUR_API_KEY";
   const apiKey = "0964ad4e3be969508766aef582e92012";
   const sportKey = "upcoming"; // use the sport_key from the /sports endpoint below, or use 'upcoming' to see the next 8 games across all sports
   const regions = "au"; // uk | us | eu | au. Multiple can be specified if comma delimited
   const markets = "h2h,spreads,totals"; // h2h | spreads | totals. Multiple can be specified if comma delimited
-  // const markets = "h2h"; // h2h | spreads | totals. Multiple can be specified if comma delimited
   const oddsFormat = "decimal"; // decimal | american
   const dateFormat = "iso"; // iso | unix
 
@@ -73,9 +70,6 @@ export default function Home() {
 
   const findOdds = async (e) => {
     e.preventDefault();
-
-    // console.log("nrlData", nrlData);
-    // setEvents(nrlData);
 
     axios
       .get(`https://api.the-odds-api.com/v4/sports/${league}/odds`, {
