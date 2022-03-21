@@ -7,6 +7,7 @@ import Event from "@/components/Event";
 import Searchbar from "@/components/Searchbar";
 
 import upcomingMarkets from "@/data/upcomingMarkets.json";
+import nrlData from "@/data/nrlData.json";
 
 export default function Home() {
   const [events, setEvents] = useState(upcomingMarkets);
@@ -22,6 +23,7 @@ export default function Home() {
   const sportKey = "upcoming"; // use the sport_key from the /sports endpoint below, or use 'upcoming' to see the next 8 games across all sports
   const regions = "au"; // uk | us | eu | au. Multiple can be specified if comma delimited
   const markets = "h2h,spreads,totals"; // h2h | spreads | totals. Multiple can be specified if comma delimited
+  // const markets = "h2h"; // h2h | spreads | totals. Multiple can be specified if comma delimited
   const oddsFormat = "decimal"; // decimal | american
   const dateFormat = "iso"; // iso | unix
 
@@ -35,7 +37,7 @@ export default function Home() {
         },
       })
       .then((response) => {
-        console.log(response.data);
+        console.log("Upcoming Sports", response.data);
         // Set Upcoming Events
         setUpcoming(response.data);
         // Check your usage
@@ -49,11 +51,10 @@ export default function Home() {
         console.log("Error status", error.response.status);
         console.log(error.response.data);
       });
-
-    console.log("Axios Ran");
   }, []);
 
   useEffect(() => {
+    console.log("upcomingMarkets", upcomingMarkets);
     // Set Sports in Sidebar
     if (upcoming && sports.length === 0) {
       const allTitles = upcoming.map((event) => {
@@ -61,7 +62,7 @@ export default function Home() {
           return event.group;
         }
       });
-      console.log("allTitles", allTitles);
+
       const uniqueTitles = [...new Set(allTitles)];
 
       setSports(uniqueTitles);
@@ -72,6 +73,9 @@ export default function Home() {
 
   const findOdds = async (e) => {
     e.preventDefault();
+
+    // console.log("nrlData", nrlData);
+    // setEvents(nrlData);
 
     axios
       .get(`https://api.the-odds-api.com/v4/sports/${league}/odds`, {

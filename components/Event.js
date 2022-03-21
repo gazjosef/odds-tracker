@@ -67,13 +67,18 @@ function Event({ events }) {
       let h2h = bookmakers[i].markets.find((item) => item.key === "h2h");
       // Save Bookmaker
       let bookmaker = bookmakers[i].key;
-
-      // Avoid Undefined Error
-      if (h2h !== undefined) {
-        // console.log(h2h);
+      // Avoid Undefined Error && Create Home H2H Array For Home, Away, & Draw Markets
+      if (h2h !== undefined && h2h.outcomes.length === 3) {
         let obj = {
           bookmaker: bookmaker,
           price: h2h.outcomes[0].price,
+        };
+        homeH2hArray.push(obj);
+        // Avoid Undefined Error && Create Home H2H Array For Home & Away Markets
+      } else if (h2h !== undefined && h2h.outcomes.length === 2) {
+        let obj = {
+          bookmaker: bookmaker,
+          price: h2h.outcomes[1].price,
         };
         homeH2hArray.push(obj);
       }
@@ -83,80 +88,167 @@ function Event({ events }) {
   };
 
   const bestHomeOddsBookmaker = (bookmakers) => {
-    let bestHome = 0;
-    let bestBookmaker = "";
-    for (let i = 0; i < bookmakers.length; i++) {
-      if (bookmakers[i].markets[0].outcomes[0].price > bestHome) {
-        bestHome = bookmakers[i].markets[0].outcomes[0].price;
-        bestBookmaker = bookmakers[i].key;
-      }
+    let homeH2HArray = findHomeH2hMarkets(bookmakers);
+    // Avoid Empty Array Error
+    if (homeH2HArray.length !== 0) {
+      const initialValue = 0;
+      // Compare Home H2H Bookmakers
+      const bestHomeH2HBookmaker = homeH2HArray.reduce(
+        (previousValue, currentValue) =>
+          previousValue.price > currentValue.price
+            ? previousValue.bookmaker
+            : currentValue.bookmaker,
+        initialValue
+      );
+
+      return iconConverter(bestHomeH2HBookmaker);
     }
-    return iconConverter(bestBookmaker);
   };
 
   const bestHomeOdds = (bookmakers) => {
-    let bestHome = 0;
-    for (let i = 0; i < bookmakers.length; i++) {
-      if (bookmakers[i].markets[0].outcomes[0].price > bestHome) {
-        bestHome = bookmakers[i].markets[0].outcomes[0].price;
-      }
+    let homeH2HArray = findHomeH2hMarkets(bookmakers);
+    // Avoid Empty Array Error
+    if (homeH2HArray.length !== 0) {
+      const initialValue = 0;
+      // Compare Home H2H Odds
+      const bestHomeH2H = homeH2HArray.reduce(
+        (previousValue, currentValue) =>
+          previousValue.price > currentValue.price
+            ? previousValue.price
+            : currentValue.price,
+        initialValue
+      );
+
+      return `$${bestHomeH2H}`;
     }
-    return `$${bestHome}`;
   };
 
-  const bestAwayBookmaker = (bookmakers) => {
-    let bestAway = 0;
-    let bestBookmaker = "";
+  const findAwayH2hMarkets = (bookmakers) => {
+    let awayH2HArray = [];
+    // Find Bookmakers With Spread Market
     for (let i = 0; i < bookmakers.length; i++) {
-      if (bookmakers[i].markets[0].outcomes[1].price > bestAway) {
-        bestAway = bookmakers[i].markets[0].outcomes[1].price;
-        bestBookmaker = bookmakers[i].key;
+      // Find Nested Array
+      let h2h = bookmakers[i].markets.find((item) => item.key === "h2h");
+      // Save Bookmaker
+      let bookmaker = bookmakers[i].key;
+      // Avoid Undefined Error && Create Home H2H Array For Home, Away, & Draw Markets
+      if (h2h !== undefined && h2h.outcomes.length === 3) {
+        let obj = {
+          bookmaker: bookmaker,
+          price: h2h.outcomes[1].price,
+        };
+        awayH2HArray.push(obj);
+        // Avoid Undefined Error && Create Home H2H Array For Home & Away Markets
+      } else if (h2h !== undefined && h2h.outcomes.length === 2) {
+        let obj = {
+          bookmaker: bookmaker,
+          price: h2h.outcomes[0].price,
+        };
+        awayH2HArray.push(obj);
       }
     }
-    return iconConverter(bestBookmaker);
+
+    return awayH2HArray;
+  };
+
+  const bestAwayH2HBookmaker = (bookmakers) => {
+    let awayH2HArray = findAwayH2hMarkets(bookmakers);
+
+    // Avoid Empty Array Error
+    if (awayH2HArray.length !== 0) {
+      const initialValue = 0;
+      // Compare Away H2H Bookmakers
+      const bestAwayH2HBookmaker = awayH2HArray.reduce(
+        (previousValue, currentValue) =>
+          previousValue.price > currentValue.price
+            ? previousValue.bookmaker
+            : currentValue.bookmaker,
+        initialValue
+      );
+
+      return iconConverter(bestAwayH2HBookmaker);
+    }
   };
 
   const bestAwayOdds = (bookmakers) => {
-    let bestAway = 0;
+    let homeAwayArray = findAwayH2hMarkets(bookmakers);
+    // Avoid Empty Array Error
+    if (homeAwayArray.length !== 0) {
+      const initialValue = 0;
+      // Compare Away H2H Odds
+      const bestAwayH2H = homeAwayArray.reduce(
+        (previousValue, currentValue) =>
+          previousValue.price > currentValue.price
+            ? previousValue.price
+            : currentValue.price,
+        initialValue
+      );
+
+      return `$${bestAwayH2H}`;
+    }
+  };
+
+  const findDrawH2hMarkets = (bookmakers) => {
+    let drawH2HArray = [];
+    // Find Bookmakers With Spread Market
     for (let i = 0; i < bookmakers.length; i++) {
-      if (bookmakers[i].markets[0].outcomes[1].price > bestAway) {
-        bestAway = bookmakers[i].markets[0].outcomes[1].price;
+      // Find Nested Array
+      let h2h = bookmakers[i].markets.find((item) => item.key === "h2h");
+      // Save Bookmaker
+      let bookmaker = bookmakers[i].key;
+      // Avoid Undefined Error && Create Draw H2H Array
+      if (h2h !== undefined && h2h.outcomes.length === 3) {
+        let obj = {
+          bookmaker: bookmaker,
+          price: h2h.outcomes[2].price,
+        };
+        drawH2HArray.push(obj);
       }
     }
-    return `$${bestAway}`;
+
+    return drawH2HArray;
   };
 
   const bestDrawBookmaker = (bookmakers) => {
-    let bestDraw = 0;
-    let bestBookmaker = "";
-    for (let i = 0; i < bookmakers.length; i++) {
-      if (bookmakers[i].markets[0].outcomes[2]) {
-        if (bookmakers[i].markets[0].outcomes[2].price > bestDraw) {
-          bestDraw = bookmakers[i].markets[0].outcomes[2].price;
-          bestBookmaker = bookmakers[i].key;
-        }
-      }
+    let drawH2HArray = findDrawH2hMarkets(bookmakers);
+    // Avoid Empty Array Error
+    if (drawH2HArray.length !== 0) {
+      const initialValue = 0;
+      // Compare Draw Bookmakers
+      const bestDrawH2HBookmaker = drawH2HArray.reduce(
+        (previousValue, currentValue) =>
+          previousValue.price > currentValue.price
+            ? previousValue.bookmaker
+            : currentValue.bookmaker,
+        initialValue
+      );
+
+      return iconConverter(bestDrawH2HBookmaker);
     }
-    return iconConverter(bestBookmaker);
   };
 
   const bestDrawOdds = (bookmakers) => {
-    let bestDraw = 0;
-    for (let i = 0; i < bookmakers.length; i++) {
-      if (bookmakers[i].markets[0].outcomes[2]) {
-        if (bookmakers[i].markets[0].outcomes[2].price > bestDraw) {
-          bestDraw = bookmakers[i].markets[0].outcomes[2].price;
-        }
-      }
+    let homeDrawArray = findDrawH2hMarkets(bookmakers);
+    // Avoid Empty Array Error
+    if (homeDrawArray.length !== 0) {
+      const initialValue = 0;
+      // Compare Draw Odds
+      const bestDrawH2H = homeDrawArray.reduce(
+        (previousValue, currentValue) =>
+          previousValue.price > currentValue.price
+            ? previousValue.price
+            : currentValue.price,
+        initialValue
+      );
+
+      return `$${bestDrawH2H}`;
     }
-    return `$${bestDraw}`;
   };
 
   //* SPREAD LINE
 
   const findHomeSpreadsMarkets = (bookmakers) => {
     let homeSpreadsArray = [];
-
     // Find Bookmakers With Spread Market
     for (let i = 0; i < bookmakers.length; i++) {
       // Find Nested Array
@@ -165,13 +257,12 @@ function Event({ events }) {
       );
       // Save Bookmaker
       let bookmaker = bookmakers[i].key;
-
       // Avoid Undefined Error
       if (spreads !== undefined) {
         let obj = {
           bookmaker: bookmaker,
-          spread: spreads.outcomes[0].point,
-          price: spreads.outcomes[0].price,
+          spread: spreads.outcomes[1].point,
+          price: spreads.outcomes[1].price,
         };
         homeSpreadsArray.push(obj);
       }
@@ -182,16 +273,17 @@ function Event({ events }) {
 
   const bestHomeSpreadBookmaker = (bookmakers) => {
     let homeSpreadArray = findHomeSpreadsMarkets(bookmakers);
-
     // Avoid Empty Array Error
     if (homeSpreadArray.length !== 0) {
-      // Compare Best Spreads && Best Prices Then Find Best Bookmaker
-      let bestHomeSpreadBookmaker = "";
-
-      homeSpreadArray.reduce((prev, current) =>
-        prev.spread < current.spread && prev.price < current.price
-          ? (bestHomeSpreadBookmaker = current.bookmaker)
-          : (bestHomeSpreadBookmaker = prev.bookmaker)
+      const initialValue = -1000;
+      // Compare Home Spread Bookmakers
+      const bestHomeSpreadBookmaker = homeSpreadArray.reduce(
+        (previousValue, currentValue) =>
+          previousValue.spread > currentValue.spread &&
+          previousValue.price > currentValue.price
+            ? previousValue.bookmaker
+            : currentValue.bookmaker,
+        initialValue
       );
 
       return iconConverter(bestHomeSpreadBookmaker);
@@ -200,26 +292,33 @@ function Event({ events }) {
 
   const bestHomeSpread = (bookmakers) => {
     let homeSpreadArray = findHomeSpreadsMarkets(bookmakers);
-
     // Avoid Empty Array Error
     if (homeSpreadArray.length !== 0) {
-      let bestHomeSpread;
-      let bestHomePrice;
-
-      // Compare Best Spreads && Best Prices
-      homeSpreadArray.reduce((prev, current) =>
-        prev.spread < current.spread && prev.price < current.price
-          ? (bestHomeSpread = current.spread) && (bestHomePrice = current.price)
-          : (bestHomeSpread = prev.spread) && (bestHomePrice = prev.price)
+      const initialValue = -1000;
+      // Compare Home Spread
+      const bestHomeSpread = homeSpreadArray.reduce(
+        (previousValue, currentValue) =>
+          previousValue.spread > currentValue.spread &&
+          previousValue.price > currentValue.price
+            ? previousValue.spread
+            : currentValue.spread,
+        initialValue
       );
-
+      // Compare Home Spread Price
+      const bestHomePrice = homeSpreadArray.reduce(
+        (previousValue, currentValue) =>
+          previousValue.spread > currentValue.spread &&
+          previousValue.price > currentValue.price
+            ? previousValue.price
+            : currentValue.price,
+        initialValue
+      );
       return `${bestHomeSpread} ($${bestHomePrice})`;
     }
   };
 
   const findAwaySpreadsMarkets = (bookmakers) => {
     let awaySpreadArray = [];
-
     // Find Bookmakers With Spread Market
     for (let i = 0; i < bookmakers.length; i++) {
       // Find Nested Array
@@ -228,13 +327,12 @@ function Event({ events }) {
       );
       // Save Bookmaker
       let bookmaker = bookmakers[i].key;
-
       // Avoid Undefined Error
       if (spreads !== undefined) {
         let obj = {
           bookmaker: bookmaker,
-          spread: spreads.outcomes[1].point,
-          price: spreads.outcomes[1].price,
+          spread: spreads.outcomes[0].point,
+          price: spreads.outcomes[0].price,
         };
         awaySpreadArray.push(obj);
       }
@@ -245,16 +343,16 @@ function Event({ events }) {
 
   const bestAwaySpreadsBookmaker = (bookmakers) => {
     let awaySpreadArray = findAwaySpreadsMarkets(bookmakers);
-
     // Avoid Empty Array Error
     if (awaySpreadArray.length !== 0) {
-      let bestAwaySpreadBookmaker = "";
-
-      // Compare Best Spreads && Best Prices Then Find Best Bookmaker
-      awaySpreadArray.reduce((prev, current) =>
-        prev.spread < current.spread && prev.price < current.price
-          ? (bestAwaySpreadBookmaker = current.bookmaker)
-          : (bestAwaySpreadBookmaker = prev.bookmaker)
+      const initialValue = -1000;
+      // Compare Away Spread Bookmakers
+      const bestAwaySpreadBookmaker = awaySpreadArray.reduce(
+        (previousValue, currentValue) =>
+          previousValue.spread > currentValue.spread
+            ? previousValue.bookmaker
+            : currentValue.bookmaker,
+        initialValue
       );
 
       return iconConverter(bestAwaySpreadBookmaker);
@@ -263,17 +361,26 @@ function Event({ events }) {
 
   const bestAwaySpreads = (bookmakers) => {
     let awaySpreadArray = findAwaySpreadsMarkets(bookmakers);
-
     // Avoid Empty Array Error
     if (awaySpreadArray.length !== 0) {
-      let bestAwaySpread;
-      let bestAwayPrice;
-
-      // Compare Best Spreads && Best Prices
-      awaySpreadArray.reduce((prev, current) =>
-        prev.spread < current.spread && prev.price < current.price
-          ? (bestAwaySpread = current.spread) && (bestAwayPrice = current.price)
-          : (bestAwaySpread = prev.spread) && (bestAwayPrice = prev.price)
+      const initialValue = -1000;
+      // Compare Away Spreads
+      const bestAwaySpread = awaySpreadArray.reduce(
+        (previousValue, currentValue) =>
+          previousValue.spread > currentValue.spread &&
+          previousValue.price > currentValue.price
+            ? previousValue.spread
+            : currentValue.spread,
+        initialValue
+      );
+      // Compare Away Spread Prices
+      const bestAwayPrice = awaySpreadArray.reduce(
+        (previousValue, currentValue) =>
+          previousValue.spread > currentValue.spread &&
+          previousValue.price > currentValue.price
+            ? previousValue.price
+            : currentValue.price,
+        initialValue
       );
 
       return `${bestAwaySpread} ($${bestAwayPrice})`;
@@ -284,7 +391,6 @@ function Event({ events }) {
 
   const findHomeTotalsMarkets = (bookmakers) => {
     let homeTotalsArray = [];
-
     // Find Bookmakers With Totals Market
     for (let i = 0; i < bookmakers.length; i++) {
       // Find Nested Totals Market
@@ -293,7 +399,6 @@ function Event({ events }) {
       );
       // Save Bookmaker
       let bookmaker = bookmakers[i].key;
-
       // Avoid Undefined Error
       if (totalsObject !== undefined) {
         let obj = {
@@ -301,7 +406,6 @@ function Event({ events }) {
           totals: totalsObject.outcomes[0].point,
           price: totalsObject.outcomes[0].price,
         };
-
         homeTotalsArray.push(obj);
       }
     }
@@ -311,35 +415,45 @@ function Event({ events }) {
 
   const bestHomeTotalBookmaker = (bookmakers) => {
     let homeTotalArray = findHomeTotalsMarkets(bookmakers);
-
     // Avoid Empty Array Error
     if (homeTotalArray.length !== 0) {
-      let bestBookmaker = homeTotalArray[0].bookmaker;
-
-      // Compare Best Totals && Best Prices Then Find Best Bookmaker
-      homeTotalArray.reduce((prev, current) =>
-        prev.totals < current.totals && prev.price < current.price
-          ? (bestBookmaker = current.bookmaker)
-          : (bestBookmaker = prev.bookmaker)
+      const initialValue = -1000;
+      // Compare Home Total Bookmakers
+      const bestHomeTotalBookmaker = homeTotalArray.reduce(
+        (previousValue, currentValue) =>
+          previousValue.totals > currentValue.totals &&
+          previousValue.price > currentValue.price
+            ? previousValue.bookmaker
+            : currentValue.bookmaker,
+        initialValue
       );
 
-      return iconConverter(bestBookmaker);
+      return iconConverter(bestHomeTotalBookmaker);
     }
   };
 
   const bestHomeTotal = (bookmakers) => {
     let homeTotalArray = findHomeTotalsMarkets(bookmakers);
-
     // Avoid Empty Array Error
     if (homeTotalArray.length !== 0) {
-      let bestHomeTotal = homeTotalArray[0].totals;
-      let bestHomePrice = homeTotalArray[0].price;
-
-      // Compare Best Totals && Best Prices
-      homeTotalArray.reduce((prev, current) =>
-        prev.totals < current.totals && prev.price < current.price
-          ? (bestHomeTotal = current.totals) && (bestHomePrice = current.price)
-          : (bestHomeTotal = prev.totals) && (bestHomePrice = prev.price)
+      const initialValue = -1000;
+      // Compare Home Totals
+      const bestHomeTotal = homeTotalArray.reduce(
+        (previousValue, currentValue) =>
+          previousValue.totals > currentValue.totals &&
+          previousValue.price > currentValue.price
+            ? previousValue.totals
+            : currentValue.totals,
+        initialValue
+      );
+      // Compare Home Total Prices
+      const bestHomePrice = homeTotalArray.reduce(
+        (previousValue, currentValue) =>
+          previousValue.totals > currentValue.totals &&
+          previousValue.price > currentValue.price
+            ? previousValue.price
+            : currentValue.price,
+        initialValue
       );
 
       return `O${bestHomeTotal}($${bestHomePrice})`;
@@ -348,7 +462,6 @@ function Event({ events }) {
 
   const findAwayTotalsMarkets = (bookmakers) => {
     let awayTotalsArray = [];
-
     // Find Bookmakers With Totals Market
     for (let i = 0; i < bookmakers.length; i++) {
       // Find Nested Totals Market
@@ -357,7 +470,6 @@ function Event({ events }) {
       );
       // Save Bookmaker
       let bookmaker = bookmakers[i].key;
-
       // Avoid Undefined Error
       if (totalsObject !== undefined) {
         let obj = {
@@ -365,7 +477,6 @@ function Event({ events }) {
           totals: totalsObject.outcomes[0].point,
           price: totalsObject.outcomes[0].price,
         };
-
         awayTotalsArray.push(obj);
       }
     }
@@ -375,35 +486,44 @@ function Event({ events }) {
 
   const bestAwayTotalBookmaker = (bookmakers) => {
     let awayTotalArray = findAwayTotalsMarkets(bookmakers);
-
     // Avoid Empty Array Error
     if (awayTotalArray.length !== 0) {
-      let bestBookmaker = awayTotalArray[0].bookmaker;
-
-      // Compare Best Totals && Best Prices Then Find Best Bookmaker
-      awayTotalArray.reduce((prev, current) =>
-        prev.totals < current.totals && prev.price < current.price
-          ? (bestBookmaker = current.bookmaker)
-          : (bestBookmaker = prev.bookmaker)
+      const initialValue = -1000;
+      // Compare Away Total Bookmakers
+      const bestAwayTotalBookmaker = awayTotalArray.reduce(
+        (previousValue, currentValue) =>
+          previousValue.totals > currentValue.totals
+            ? previousValue.bookmaker
+            : currentValue.bookmaker,
+        initialValue
       );
 
-      return iconConverter(bestBookmaker);
+      return iconConverter(bestAwayTotalBookmaker);
     }
   };
 
   const bestAwayTotal = (bookmakers) => {
     let awayTotalArray = findAwayTotalsMarkets(bookmakers);
-
     // Avoid Empty Array Error
     if (awayTotalArray.length !== 0) {
-      let bestAwayTotal = awayTotalArray[0].totals;
-      let bestAwayPrice = awayTotalArray[0].price;
-
-      // Compare Best Totals && Best Prices
-      awayTotalArray.reduce((prev, current) =>
-        prev.totals < current.totals && prev.price < current.price
-          ? (bestAwayTotal = current.totals) && (bestAwayPrice = current.price)
-          : (bestAwayTotal = prev.totals) && (bestAwayPrice = prev.price)
+      const initialValue = -1000;
+      // Compare Away Totals
+      const bestAwayTotal = awayTotalArray.reduce(
+        (previousValue, currentValue) =>
+          previousValue.totals > currentValue.totals &&
+          previousValue.price > currentValue.price
+            ? previousValue.totals
+            : currentValue.totals,
+        initialValue
+      );
+      // Compare Away Total Prices
+      const bestAwayPrice = awayTotalArray.reduce(
+        (previousValue, currentValue) =>
+          previousValue.totals > currentValue.totals &&
+          previousValue.price > currentValue.price
+            ? previousValue.price
+            : currentValue.price,
+        initialValue
       );
 
       return `U${bestAwayTotal}($${bestAwayPrice})`;
@@ -460,7 +580,7 @@ function Event({ events }) {
                   <td className="table__border-right">
                     {bestAwayTotal(events.bookmakers)}
                   </td>
-                  <td>{bestAwayBookmaker(events.bookmakers)}</td>
+                  <td>{bestAwayH2HBookmaker(events.bookmakers)}</td>
                   <td>{bestAwayOdds(events.bookmakers)}</td>
                 </tr>
                 <tr className="table__border-bottom">
@@ -509,7 +629,7 @@ function Event({ events }) {
                   <td className="table__border-right">
                     {bestAwayTotal(events.bookmakers)}
                   </td>
-                  <td>{bestAwayBookmaker(events.bookmakers)}</td>
+                  <td>{bestAwayH2HBookmaker(events.bookmakers)}</td>
                   <td>{bestAwayOdds(events.bookmakers)}</td>
                 </tr>
               </tbody>
