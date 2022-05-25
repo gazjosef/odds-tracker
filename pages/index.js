@@ -17,7 +17,7 @@ export default function Home() {
   const [league, selectLeague] = useState("upcoming");
 
   const axios = require("axios");
-  const apiKey = "0964ad4e3be969508766aef582e92012";
+  const apiKey = process.env.NEXT_PUBLIC_ODDS_API_KEY;
   const sportKey = "upcoming"; // use the sport_key from the /sports endpoint below, or use 'upcoming' to see the next 8 games across all sports
   const regions = "au"; // uk | us | eu | au. Multiple can be specified if comma delimited
   const markets = "h2h,spreads,totals"; // h2h | spreads | totals. Multiple can be specified if comma delimited

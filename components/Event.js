@@ -261,8 +261,8 @@ function Event({ events }) {
       if (spreads !== undefined) {
         let obj = {
           bookmaker: bookmaker,
-          spread: spreads.outcomes[1].point,
-          price: spreads.outcomes[1].price,
+          spread: spreads.outcomes[0].point,
+          price: spreads.outcomes[0].price,
         };
         homeSpreadsArray.push(obj);
       }
@@ -331,8 +331,8 @@ function Event({ events }) {
       if (spreads !== undefined) {
         let obj = {
           bookmaker: bookmaker,
-          spread: spreads.outcomes[0].point,
-          price: spreads.outcomes[0].price,
+          spread: spreads.outcomes[1].point,
+          price: spreads.outcomes[1].price,
         };
         awaySpreadArray.push(obj);
       }
@@ -417,7 +417,7 @@ function Event({ events }) {
     let homeTotalArray = findHomeTotalsMarkets(bookmakers);
     // Avoid Empty Array Error
     if (homeTotalArray.length !== 0) {
-      const initialValue = -1000;
+      const initialValue = 0;
       // Compare Home Total Bookmakers
       const bestHomeTotalBookmaker = homeTotalArray.reduce(
         (previousValue, currentValue) =>
@@ -436,7 +436,8 @@ function Event({ events }) {
     let homeTotalArray = findHomeTotalsMarkets(bookmakers);
     // Avoid Empty Array Error
     if (homeTotalArray.length !== 0) {
-      const initialValue = -1000;
+      console.log("homeTotalArray", homeTotalArray);
+      const initialValue = 0;
       // Compare Home Totals
       const bestHomeTotal = homeTotalArray.reduce(
         (previousValue, currentValue) =>
@@ -474,8 +475,8 @@ function Event({ events }) {
       if (totalsObject !== undefined) {
         let obj = {
           bookmaker: bookmaker,
-          totals: totalsObject.outcomes[0].point,
-          price: totalsObject.outcomes[0].price,
+          totals: totalsObject.outcomes[1].point,
+          price: totalsObject.outcomes[1].price,
         };
         awayTotalsArray.push(obj);
       }
@@ -506,6 +507,7 @@ function Event({ events }) {
     let awayTotalArray = findAwayTotalsMarkets(bookmakers);
     // Avoid Empty Array Error
     if (awayTotalArray.length !== 0) {
+      console.log("awayTotalArray", awayTotalArray);
       const initialValue = -1000;
       // Compare Away Totals
       const bestAwayTotal = awayTotalArray.reduce(
