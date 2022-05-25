@@ -3,8 +3,10 @@
 
 import { useState, useEffect } from "react";
 
-import Event from "@/components/Event";
-import Searchbar from "@/components/Searchbar";
+// import Event from "@/components/Event";
+import Event from "@/components/Events/Events";
+
+import Searchbar from "@/components/Searchbar/Searchbar";
 
 import upcomingMarkets from "@/data/upcomingMarkets.json";
 

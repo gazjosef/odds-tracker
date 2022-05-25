@@ -1,6 +1,6 @@
-import { Meta } from "@/components/Meta";
 import { useRouter } from "next/router";
-import Header from "./Header";
+import { Meta } from "@/components/Meta";
+import Header from "@/components/Header/Header";
 
 export const Layout = ({ children }) => {
   const router = useRouter();

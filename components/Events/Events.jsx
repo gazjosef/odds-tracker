@@ -1,60 +1,9 @@
-import Bet365 from "@/svg/bet365.svg";
-import Betfair from "@/svg/betfair.svg";
-import Betstar from "@/svg/betstar.svg";
-import Bookmaker from "@/svg/bookmaker.svg";
-import Ladbrokes from "@/svg/ladbrokes.svg";
-import Neds from "@/svg/neds.svg";
-import Pointsbetau from "@/svg/pointsbetau.svg";
-import Sportsbet from "@/svg/sportsbet.svg";
-import Sportsbetting from "@/svg/sportsbetting.svg";
-import Tab from "@/svg/tab.svg";
-import Unibet from "@/svg/unibet.svg";
+import Converter from "./Converter";
 
-function Event({ events }) {
-  //* CONVERT FROM ISO TO DATE
-
-  const dateConverter = (iso) => {
-    let date = new Date(iso);
-    let month = date.getMonth() + 1;
-    let dt = date.getDate();
-
-    if (dt < 10) {
-      dt = "0" + dt;
-    }
-    if (month < 10) {
-      month = "0" + month;
-    }
-
-    return dt + "-" + month;
-  };
-
-  //* CONVERT TIME
-
-  const timeConverter = (time) => {
-    let isoDate = time;
-    let result = isoDate.match(/\d\d:\d\d/);
-    return result;
-  };
-
-  //* COVERT TO ICON
-
-  const iconConverter = (bookmaker) => {
-    const convertIcon = {
-      bet365: <Bet365 className="icons" />,
-      betfair: <Betfair className="icons" />,
-      betstar: <Betstar className="icons" />,
-      bookmaker: <Bookmaker className="icons" />,
-      ladbrokes: <Ladbrokes className="icons" />,
-      neds: <Neds className="icons icons--neds" />,
-      playup: <Neds className="icons icons--neds" />,
-      pointsbetau: <Pointsbetau className="icons" />,
-      sportsbet: <Sportsbet className="icons" />,
-      sportsbetting: <Sportsbetting className="icons" />,
-      tab: <Tab className="icons icons--tab" />,
-      unibet: <Unibet className="icons" />,
-    };
-    return convertIcon[bookmaker];
-  };
+function Events({ events }) {
+  const convertDate = new Converter().dateConverter;
+  const covertTime = new Converter().timeConverter;
+  const convertIcon = new Converter().iconConverter;
 
   //* MONEY LINE
 
@@ -101,7 +50,7 @@ function Event({ events }) {
         initialValue
       );
 
-      return iconConverter(bestHomeH2HBookmaker);
+      return convertIcon(bestHomeH2HBookmaker);
     }
   };
 
@@ -166,7 +115,7 @@ function Event({ events }) {
         initialValue
       );
 
-      return iconConverter(bestAwayH2HBookmaker);
+      return convertIcon(bestAwayH2HBookmaker);
     }
   };
 
@@ -223,7 +172,7 @@ function Event({ events }) {
         initialValue
       );
 
-      return iconConverter(bestDrawH2HBookmaker);
+      return convertIcon(bestDrawH2HBookmaker);
     }
   };
 
@@ -286,7 +235,7 @@ function Event({ events }) {
         initialValue
       );
 
-      return iconConverter(bestHomeSpreadBookmaker);
+      return convertIcon(bestHomeSpreadBookmaker);
     }
   };
 
@@ -355,7 +304,7 @@ function Event({ events }) {
         initialValue
       );
 
-      return iconConverter(bestAwaySpreadBookmaker);
+      return convertIcon(bestAwaySpreadBookmaker);
     }
   };
 
@@ -428,7 +377,7 @@ function Event({ events }) {
         initialValue
       );
 
-      return iconConverter(bestHomeTotalBookmaker);
+      return convertIcon(bestHomeTotalBookmaker);
     }
   };
 
@@ -499,7 +448,7 @@ function Event({ events }) {
         initialValue
       );
 
-      return iconConverter(bestAwayTotalBookmaker);
+      return convertIcon(bestAwayTotalBookmaker);
     }
   };
 
@@ -552,10 +501,10 @@ function Event({ events }) {
               <tbody key={key}>
                 <tr>
                   <td rowSpan="3" className="table__border-right">
-                    {dateConverter(events.commence_time)}
+                    {convertDate(events.commence_time)}
                   </td>
                   <td rowSpan="3" className="table__border-right">
-                    {timeConverter(events.commence_time)}
+                    {covertTime(events.commence_time)}
                   </td>
                   <td rowSpan="3" className="table__border-right">
                     {events.sport_title}
@@ -601,10 +550,10 @@ function Event({ events }) {
               <tbody key={key}>
                 <tr>
                   <td rowSpan="2" className="table__border-right">
-                    {dateConverter(events.commence_time)}
+                    {convertDate(events.commence_time)}
                   </td>
                   <td rowSpan="2" className="table__border-right">
-                    {timeConverter(events.commence_time)}
+                    {covertTime(events.commence_time)}
                   </td>
                   <td rowSpan="2" className="table__border-right">
                     {events.sport_title}
@@ -642,4 +591,4 @@ function Event({ events }) {
   );
 }
 
-export default Event;
+export default Events;
