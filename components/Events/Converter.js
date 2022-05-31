@@ -10,49 +10,47 @@ import Sportsbetting from "@/svg/sportsbetting.svg";
 import Tab from "@/svg/tab.svg";
 import Unibet from "@/svg/unibet.svg";
 
-export default class Converter {
-  //* CONVERT FROM ISO TO DATE
+//* CONVERT FROM ISO TO DATE
 
-  dateConverter = (iso) => {
-    let date = new Date(iso);
-    let month = date.getMonth() + 1;
-    let dt = date.getDate();
+export const dateConverter = (iso) => {
+  let date = new Date(iso);
+  let month = date.getMonth() + 1;
+  let dt = date.getDate();
 
-    if (dt < 10) {
-      dt = "0" + dt;
-    }
-    if (month < 10) {
-      month = "0" + month;
-    }
+  if (dt < 10) {
+    dt = "0" + dt;
+  }
+  if (month < 10) {
+    month = "0" + month;
+  }
 
-    return dt + "-" + month;
+  return dt + "-" + month;
+};
+
+//* CONVERT TIME
+
+export const timeConverter = (time) => {
+  let isoDate = time;
+  let result = isoDate.match(/\d\d:\d\d/);
+  return result;
+};
+
+//* COVERT TO ICON
+
+export const iconConverter = (bookmaker) => {
+  const convertIcon = {
+    bet365: <Bet365 className="icons" />,
+    betfair: <Betfair className="icons" />,
+    betstar: <Betstar className="icons" />,
+    bookmaker: <Bookmaker className="icons" />,
+    ladbrokes: <Ladbrokes className="icons" />,
+    neds: <Neds className="icons icons--neds" />,
+    playup: <Neds className="icons icons--neds" />,
+    pointsbetau: <Pointsbetau className="icons" />,
+    sportsbet: <Sportsbet className="icons" />,
+    sportsbetting: <Sportsbetting className="icons" />,
+    tab: <Tab className="icons icons--tab" />,
+    unibet: <Unibet className="icons" />,
   };
-
-  //* CONVERT TIME
-
-  timeConverter = (time) => {
-    let isoDate = time;
-    let result = isoDate.match(/\d\d:\d\d/);
-    return result;
-  };
-
-  //* COVERT TO ICON
-
-  iconConverter = (bookmaker) => {
-    const convertIcon = {
-      bet365: <Bet365 className="icons" />,
-      betfair: <Betfair className="icons" />,
-      betstar: <Betstar className="icons" />,
-      bookmaker: <Bookmaker className="icons" />,
-      ladbrokes: <Ladbrokes className="icons" />,
-      neds: <Neds className="icons icons--neds" />,
-      playup: <Neds className="icons icons--neds" />,
-      pointsbetau: <Pointsbetau className="icons" />,
-      sportsbet: <Sportsbet className="icons" />,
-      sportsbetting: <Sportsbetting className="icons" />,
-      tab: <Tab className="icons icons--tab" />,
-      unibet: <Unibet className="icons" />,
-    };
-    return convertIcon[bookmaker];
-  };
-}
+  return convertIcon[bookmaker];
+};

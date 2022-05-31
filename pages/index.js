@@ -1,13 +1,7 @@
-// import "dotenv/config"; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
-// import express from "express";
-
 import { useState, useEffect } from "react";
 
-// import Event from "@/components/Event";
-import Event from "@/components/Events/Events";
-
+import Event from "@/components/Events/Event";
 import Searchbar from "@/components/Searchbar/Searchbar";
-
 import upcomingMarkets from "@/data/upcomingMarkets.json";
 
 export default function Home() {
@@ -39,7 +33,7 @@ export default function Home() {
         console.log("Upcoming Sports", response.data);
         // Set Upcoming Events
         setUpcoming(response.data);
-        // Check your usage
+        // Check my usage
         console.log(
           "Remaining requests",
           response.headers["x-requests-remaining"]
