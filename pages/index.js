@@ -10,7 +10,8 @@ export default function Home() {
   const [sports, setSports] = useState([]);
   // Select Sports & League
   const [sport, selectSport] = useState([]);
-  const [league, selectLeague] = useState("upcoming");
+  const [league, selectLeague] = useState();
+  const [title, setTitle] = useState("upcoming Events");
 
   const axios = require("axios");
   const apiKey = process.env.NEXT_PUBLIC_ODDS_API_KEY;
@@ -20,7 +21,9 @@ export default function Home() {
   const oddsFormat = "decimal"; // decimal | american
   const dateFormat = "iso"; // iso | unix
 
+  ///////////////////////////////////
   // * GET DATA
+  ///////////////////////////////////
 
   useEffect(() => {
     axios
@@ -62,7 +65,9 @@ export default function Home() {
     }
   }, [upcoming, sports.length]);
 
+  ///////////////////////////////////
   // * FIND ODDS
+  ///////////////////////////////////
 
   const findOdds = async (e) => {
     e.preventDefault();
@@ -82,6 +87,9 @@ export default function Home() {
         // Set Events
         setEvents(response.data);
 
+        // Set Title
+        setTitle(sport);
+
         // Check your usage
         console.log(
           "Remaining requests",
@@ -99,7 +107,7 @@ export default function Home() {
     <main className="container">
       <article className="article-display-odds">
         <section className="article-display-odds__title">
-          <h1>Upcoming Events</h1>
+          <h1>{title}</h1>
         </section>
         <section className="article-display-odds__events">
           <Event events={events} />
@@ -113,6 +121,7 @@ export default function Home() {
           findOdds={findOdds}
           selectSport={selectSport}
           selectLeague={selectLeague}
+          setTitle={setTitle}
         />
       </aside>
     </main>

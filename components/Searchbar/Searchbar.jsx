@@ -23,6 +23,7 @@ export default function Search({
 
   const handleLeagueChange = (e) => {
     selectLeague(e.target.value);
+
     // console.log("handleLeagueChange", e.target.value);
   };
 

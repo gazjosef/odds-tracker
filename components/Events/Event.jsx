@@ -155,7 +155,7 @@ export default function EventTest({ events }) {
         <tr>
           <th>Date</th>
           <th>Time</th>
-          <th>Sports Title</th>
+          <th>League</th>
           <th>Team</th>
           <th colSpan="2">Line</th>
           <th colSpan="2">Total</th>
