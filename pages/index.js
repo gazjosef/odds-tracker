@@ -17,12 +17,13 @@ export default function Home() {
   const apiKey = process.env.NEXT_PUBLIC_ODDS_API_KEY;
   const sportKey = "upcoming"; // use the sport_key from the /sports endpoint below, or use 'upcoming' to see the next 8 games across all sports
   const regions = "au"; // uk | us | eu | au. Multiple can be specified if comma delimited
-  const markets = "h2h,spreads,totals"; // h2h | spreads | totals. Multiple can be specified if comma delimited
+  // const markets = "h2h,spreads,totals"; // h2h | spreads | totals. Multiple can be specified if comma delimited
+  const markets = "h2h"; // h2h | spreads | totals. Multiple can be specified if comma delimited
   const oddsFormat = "decimal"; // decimal | american
   const dateFormat = "iso"; // iso | unix
 
   ///////////////////////////////////
-  // * GET DATA
+  // * FIND UPCOMING SPORTS
   ///////////////////////////////////
 
   useEffect(() => {
@@ -49,9 +50,47 @@ export default function Home() {
       });
   }, []);
 
+  ///////////////////////////////////
+  // * FIND UPCOMING EVENTS
+  ///////////////////////////////////
+
+  // useEffect(() => {
+  //   axios
+  //     .get(`https://api.the-odds-api.com/v4/sports/upcoming/odds`, {
+  //       params: {
+  //         apiKey,
+  //         regions,
+  //         markets,
+  //         oddsFormat,
+  //         dateFormat,
+  //       },
+  //     })
+  //     .then((response) => {
+  //       console.log("Find Upcoming Events", response.data);
+  //       // Set Events
+  //       setEvents(response.data);
+
+  //       // Set Title
+  //       // setTitle(sport);
+
+  //       // Check your usage
+  //       console.log(
+  //         "Remaining requests",
+  //         response.headers["x-requests-remaining"]
+  //       );
+  //       console.log("Used requests", response.headers["x-requests-used"]);
+  //     })
+  //     .catch((error) => {
+  //       console.log("Error status", error.response.status);
+  //       console.log(error.response.data);
+  //     });
+  // });
+
+  ///////////////////////////////////
+  // * SET SPORTS LIST IN SIDEBAR
+  ///////////////////////////////////
+
   useEffect(() => {
-    console.log("upcomingMarkets", upcomingMarkets);
-    // Set Sports in Sidebar
     if (upcoming && sports.length === 0) {
       const allTitles = upcoming.map((event) => {
         if (event.has_outrights === false) {
