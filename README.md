@@ -18,6 +18,7 @@ Use searchbar to select sport, then select league
 
 ## Vercel Page
 
+https://odds-tracker.vercel.app/
 
 ## Author
 Gareth Hind
