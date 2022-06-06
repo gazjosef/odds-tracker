@@ -7,29 +7,9 @@ export default function EventTest({ events }) {
   // const spreads = ["home", "away"];
   // const overUnder = ["home", "away"];
 
-  const findBestOdds = (bookmakers, outcome, marketArguement) => {
-    let nestedMarkets = findNestedMarkets(bookmakers, outcome, marketArguement);
-
-    if (marketArguement === "spreads" || marketArguement === "totals") {
-      return findBestPoints(nestedMarkets);
-    }
-
-    if (marketArguement === "h2h") {
-      return findBestPrice(nestedMarkets);
-    }
-  };
-
-  const findBestBookmaker = (bookmakers, outcome, marketArguement) => {
-    let nestedMarkets = findNestedMarkets(bookmakers, outcome, marketArguement);
-
-    if (marketArguement === "spreads" || marketArguement === "totals") {
-      return findBestPointsBookmaker(nestedMarkets);
-    }
-
-    if (marketArguement === "h2h") {
-      return findBestPriceBookmaker(nestedMarkets);
-    }
-  };
+  //////////////////////////////////
+  // * Find Nested Markets
+  //////////////////////////////////
 
   const findNestedMarkets = (bookmakers, outcome, marketArguement) => {
     let nestedMarkets = [];
@@ -94,6 +74,22 @@ export default function EventTest({ events }) {
     return nestedMarkets;
   };
 
+  //////////////////////////////////
+  // * Find Best Odds
+  //////////////////////////////////
+
+  const findBestOdds = (bookmakers, outcome, marketArguement) => {
+    let nestedMarkets = findNestedMarkets(bookmakers, outcome, marketArguement);
+
+    if (marketArguement === "spreads" || marketArguement === "totals") {
+      return findBestPoints(nestedMarkets);
+    }
+
+    if (marketArguement === "h2h") {
+      return findBestPrice(nestedMarkets);
+    }
+  };
+
   const findBestPoints = (array) => {
     if (array !== undefined && array.length === 1) {
       const bestSpread = array[0].point;
@@ -117,17 +113,6 @@ export default function EventTest({ events }) {
     }
   };
 
-  const findBestPointsBookmaker = (array) => {
-    if (array !== undefined && array.length === 1) {
-      return array[0].bookmaker;
-    } else if (array !== undefined && array.length !== 0) {
-      return array.reduce(
-        (acc, bookmaker) =>
-          (acc = acc > bookmaker.point ? acc : bookmaker.bookmaker)
-      );
-    }
-  };
-
   const findBestPrice = (array) => {
     if (array !== undefined && array.length !== 0) {
       const bestPrice = array.reduce(
@@ -136,6 +121,33 @@ export default function EventTest({ events }) {
         0
       );
       return `$${bestPrice}`;
+    }
+  };
+
+  //////////////////////////////////
+  // * Find Best Bookmaker
+  //////////////////////////////////
+
+  const findBestBookmaker = (bookmakers, outcome, marketArguement) => {
+    let nestedMarkets = findNestedMarkets(bookmakers, outcome, marketArguement);
+
+    if (marketArguement === "spreads" || marketArguement === "totals") {
+      return findBestPointsBookmaker(nestedMarkets);
+    }
+
+    if (marketArguement === "h2h") {
+      return findBestPriceBookmaker(nestedMarkets);
+    }
+  };
+
+  const findBestPointsBookmaker = (array) => {
+    if (array !== undefined && array.length === 1) {
+      return array[0].bookmaker;
+    } else if (array !== undefined && array.length !== 0) {
+      return array.reduce(
+        (acc, bookmaker) =>
+          (acc = acc > bookmaker.point ? acc : bookmaker.bookmaker)
+      );
     }
   };
 
@@ -164,8 +176,6 @@ export default function EventTest({ events }) {
       </thead>
       {events &&
         events.map((event, key) => {
-          console.log("event", event);
-
           if (event.bookmakers[0].markets[0].outcomes.length > 2) {
             return (
               <tbody key={key}>
