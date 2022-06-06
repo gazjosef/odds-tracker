@@ -70,9 +70,6 @@ export default function Home() {
   //       // Set Events
   //       setEvents(response.data);
 
-  //       // Set Title
-  //       // setTitle(sport);
-
   //       // Check your usage
   //       console.log(
   //         "Remaining requests",
@@ -84,7 +81,7 @@ export default function Home() {
   //       console.log("Error status", error.response.status);
   //       console.log(error.response.data);
   //     });
-  // });
+  // }, []);
 
   ///////////////////////////////////
   // * SET SPORTS LIST IN SIDEBAR
