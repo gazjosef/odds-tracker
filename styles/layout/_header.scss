@@ -6,16 +6,16 @@
 
   display: flex;
   align-items: center;
+  justify-content: center;
 
   &__title {
-    width: 80rem;
+    width: 120rem;
     margin-left: 3rem;
 
     display: flex;
     align-items: center;
 
     letter-spacing: 2px;
-    text-transform: uppercase;
 
     h1 {
       margin-left: 1rem;

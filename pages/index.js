@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
 import Event from "@/components/Events/Event";
-import Searchbar from "@/components/Searchbar/Searchbar";
 import upcomingMarkets from "@/data/upcomingMarkets.json";
+import Searchbar from "@/components/Searchbar/Searchbar";
 
 export default function Home() {
   const [events, setEvents] = useState(upcomingMarkets);
@@ -11,14 +11,14 @@ export default function Home() {
   // Select Sports & League
   const [sport, selectSport] = useState([]);
   const [league, selectLeague] = useState();
-  const [title, setTitle] = useState("upcoming Events");
+  const [title, setTitle] = useState("Upcoming Events");
 
   const axios = require("axios");
   const apiKey = process.env.NEXT_PUBLIC_ODDS_API_KEY;
   const sportKey = "upcoming"; // use the sport_key from the /sports endpoint below, or use 'upcoming' to see the next 8 games across all sports
-  const regions = "au"; // uk | us | eu | au. Multiple can be specified if comma delimited
-  // const markets = "h2h,spreads,totals"; // h2h | spreads | totals. Multiple can be specified if comma delimited
-  const markets = "h2h"; // h2h | spreads | totals. Multiple can be specified if comma delimited
+  const regions = "au"; // uk | us | eu | au.
+  // const markets = "h2h,spreads,totals"; // h2h | spreads | totals.
+  const markets = "h2h"; // h2h | spreads | totals.
   const oddsFormat = "decimal"; // decimal | american
   const dateFormat = "iso"; // iso | unix
 
@@ -144,22 +144,20 @@ export default function Home() {
       <article className="article-display-odds">
         <section className="article-display-odds__title">
           <h1>{title}</h1>
+          <Searchbar
+            data={upcoming}
+            sport={sport}
+            sports={sports}
+            findOdds={findOdds}
+            selectSport={selectSport}
+            selectLeague={selectLeague}
+            setTitle={setTitle}
+          />
         </section>
         <section className="article-display-odds__events">
           <Event events={events} />
         </section>
       </article>
-      <aside className="aside">
-        <Searchbar
-          data={upcoming}
-          sport={sport}
-          sports={sports}
-          findOdds={findOdds}
-          selectSport={selectSport}
-          selectLeague={selectLeague}
-          setTitle={setTitle}
-        />
-      </aside>
     </main>
   );
 }

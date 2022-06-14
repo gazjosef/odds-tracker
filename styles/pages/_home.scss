@@ -1,23 +1,19 @@
 .article-display-odds {
-  padding: 2rem;
-
-  grid-column: 2 / span 4;
+  background-color: $color-grey-650;
+  width: 120rem;
 
   &__title {
-    background-color: $color-grey-650;
-    border-radius: 5px 5px 0 0;
     height: 7rem;
+    padding: 0 2rem;
     overflow: hidden;
-    padding-left: 2rem;
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
-    // font-family: $font-secondary;
     font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    // font-weight: 700;
+    letter-spacing: 2px;
   }
 
   &__events {

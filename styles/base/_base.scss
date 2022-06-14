@@ -29,6 +29,11 @@ a {
 }
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  // display: grid;
+  // grid-template-columns: repeat(5, 1fr);
+  // width: 120rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
