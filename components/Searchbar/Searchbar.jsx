@@ -1,6 +1,6 @@
 import { FaSearch } from "react-icons/fa";
 
-function Searchbar2({
+function Searchbar({
   data,
   sport,
   sports,
@@ -53,4 +53,4 @@ function Searchbar2({
   );
 }
 
-export default Searchbar2;
+export default Searchbar;
