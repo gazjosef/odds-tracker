@@ -54,34 +54,34 @@ export default function Home() {
   // * FIND UPCOMING EVENTS
   ///////////////////////////////////
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`https://api.the-odds-api.com/v4/sports/upcoming/odds`, {
-  //       params: {
-  //         apiKey,
-  //         regions,
-  //         markets,
-  //         oddsFormat,
-  //         dateFormat,
-  //       },
-  //     })
-  //     .then((response) => {
-  //       console.log("Find Upcoming Events", response.data);
-  //       // Set Events
-  //       setEvents(response.data);
+  useEffect(() => {
+    axios
+      .get(`https://api.the-odds-api.com/v4/sports/upcoming/odds`, {
+        params: {
+          apiKey,
+          regions,
+          markets,
+          oddsFormat,
+          dateFormat,
+        },
+      })
+      .then((response) => {
+        console.log("Find Upcoming Events", response.data);
+        // Set Events
+        setEvents(response.data);
 
-  //       // Check your usage
-  //       console.log(
-  //         "Remaining requests",
-  //         response.headers["x-requests-remaining"]
-  //       );
-  //       console.log("Used requests", response.headers["x-requests-used"]);
-  //     })
-  //     .catch((error) => {
-  //       console.log("Error status", error.response.status);
-  //       console.log(error.response.data);
-  //     });
-  // }, []);
+        // Check your usage
+        console.log(
+          "Remaining requests",
+          response.headers["x-requests-remaining"]
+        );
+        console.log("Used requests", response.headers["x-requests-used"]);
+      })
+      .catch((error) => {
+        console.log("Error status", error.response.status);
+        console.log(error.response.data);
+      });
+  }, []);
 
   ///////////////////////////////////
   // * SET SPORTS LIST IN SIDEBAR

@@ -1,6 +1,7 @@
 import Bet365 from "@/svg/bet365.svg";
 import Betfair from "@/svg/betfair.svg";
 import Betstar from "@/svg/betstar.svg";
+import Bluebet from "@/svg/bluebet.svg";
 import Bookmaker from "@/svg/bookmaker.svg";
 import Ladbrokes from "@/svg/ladbrokes.svg";
 import Neds from "@/svg/neds.svg";
@@ -42,6 +43,7 @@ export const iconConverter = (bookmaker) => {
     bet365: <Bet365 className="icons" />,
     betfair: <Betfair className="icons" />,
     betstar: <Betstar className="icons" />,
+    bluebet: <Bluebet className="icons icons--bluebet" />,
     bookmaker: <Bookmaker className="icons" />,
     ladbrokes: <Ladbrokes className="icons" />,
     neds: <Neds className="icons icons--neds" />,

@@ -17,8 +17,12 @@
     transform: rotate(90deg) scale(0.7) translateY(-2.5rem);
   }
 
+  &--bluebet {
+    background-color: #284da1;
+  }
+
   &--neds {
-    background-color: orangered;
+    background-color: #ff7800;
   }
 
   &--tab {
