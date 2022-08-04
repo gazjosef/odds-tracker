@@ -105,39 +105,39 @@ export default function Home() {
   // * FIND ODDS
   ///////////////////////////////////
 
-  // const findOdds = async (e) => {
-  //   e.preventDefault();
+  const findOdds = async (e) => {
+    e.preventDefault();
 
-  //   axios
-  //     .get(`https://api.the-odds-api.com/v4/sports/${league}/odds`, {
-  //       params: {
-  //         apiKey,
-  //         regions,
-  //         markets,
-  //         oddsFormat,
-  //         dateFormat,
-  //       },
-  //     })
-  //     .then((response) => {
-  //       console.log("Find Matches", response.data);
-  //       // Set Events
-  //       setEvents(response.data);
+    axios
+      .get(`https://api.the-odds-api.com/v4/sports/${league}/odds`, {
+        params: {
+          apiKey,
+          regions,
+          markets,
+          oddsFormat,
+          dateFormat,
+        },
+      })
+      .then((response) => {
+        console.log("Find Matches", response.data);
+        // Set Events
+        setEvents(response.data);
 
-  //       // Set Title
-  //       setTitle(sport);
+        // Set Title
+        setTitle(sport);
 
-  //       // Check your usage
-  //       console.log(
-  //         "Remaining requests",
-  //         response.headers["x-requests-remaining"]
-  //       );
-  //       console.log("Used requests", response.headers["x-requests-used"]);
-  //     })
-  //     .catch((error) => {
-  //       console.log("Error status", error.response.status);
-  //       console.log(error.response.data);
-  //     });
-  // };
+        // Check your usage
+        console.log(
+          "Remaining requests",
+          response.headers["x-requests-remaining"]
+        );
+        console.log("Used requests", response.headers["x-requests-used"]);
+      })
+      .catch((error) => {
+        console.log("Error status", error.response.status);
+        console.log(error.response.data);
+      });
+  };
 
   return (
     <main className="container">
