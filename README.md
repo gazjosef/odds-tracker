@@ -1,30 +1,3 @@
-# Odds Tracker
-
-## Description
-
-Find bookmakers prices for upcoming events. 
-
-Compare bookmakers to find the best odds.
-
-[WARNING]: Exceeded maximum requests for the month
-
-## How to use
-
-Use searchbar to select sport, then select league
-
-
-## Built-With
-- ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-- ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
-- ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
-
-## Vercel Page
-
-https://odds-tracker.vercel.app/
-
-## Author
-Gareth Hind
-
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
 <!--
@@ -41,14 +14,17 @@ Gareth Hind
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/gazjosef/weather-app">
-    <img src="/public/favicon_io/android-chrome-512x512.png" alt="Logo" width="250" height="250">
+  <a href="https://github.com/gazjosef/odds-tracker">
+    <img src="/public/img/favicon_io/android-chrome-512x512.png" alt="Logo" width="250" height="250">
   </a>
 
 <h3 align="center">Weather App</h3>
 
   <p align="center">
-A weather app forecasting the current weather temperature as well as the next five hours.
+
+Find bookmakers prices for upcoming events. 
+
+Compare bookmakers to find the best odds.
     <br />
   </p>
 </div>
@@ -85,9 +61,9 @@ A weather app forecasting the current weather temperature as well as the next fi
 
 ### Built With
 
-* ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-* ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
-* ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+- ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+- ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
+- ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -108,7 +84,7 @@ A weather app forecasting the current weather temperature as well as the next fi
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/gazjosef/weather-app.git
+   git clone https://github.com/gazjosef/odds-tracker.git
    ```
 2. Install NPM packages
    ```sh
@@ -122,7 +98,7 @@ A weather app forecasting the current weather temperature as well as the next fi
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-1. Enter City && Country Code. 
+1. Use searchbar to select sport, then select league
 2. Click the find button.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -145,9 +121,9 @@ A weather app forecasting the current weather temperature as well as the next fi
 ## Contact
 
 
-Live: [https://weather-app-gazjosef.vercel.app/](https://weather-app-gazjosef.vercel.app/)
+Live: [https://odds-tracker.vercel.app/](https://odds-tracker.vercel.app/)
 
-Project Link: [https://github.com/gazjosef/weather-app](https://github.com/gazjosef/weather-app)
+Project Link: [https://github.com/gazjosef/odds-tracker](https://github.com/gazjosef/odds-tracker)
 
 Gareth Hind - garethjhind@gmail.com
 
