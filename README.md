@@ -76,6 +76,7 @@ Compare bookmakers to find the best odds.
 ### Prerequisites
 
 * npm
+
   ```sh
   npm install npm@latest -g
   ```
@@ -83,10 +84,12 @@ Compare bookmakers to find the best odds.
 ### Installation
 
 1. Clone the repo
+   
    ```sh
    git clone https://github.com/gazjosef/odds-tracker.git
    ```
 2. Install NPM packages
+   
    ```sh
    npm install
    ```
@@ -108,7 +111,8 @@ Compare bookmakers to find the best odds.
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] 
+- [ ] Typescript
+- [ ] Unit Testing
 
 
 <!-- See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues). -->
