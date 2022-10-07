@@ -114,8 +114,10 @@ Compare bookmakers to find the best odds.
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Typescript
+- [x] Display upcoming events
+- [x] Select sport, select league events
 - [ ] Unit Testing
+- [ ] Typescript
 
 
 <!-- See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues). -->
