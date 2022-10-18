@@ -67,7 +67,7 @@ Unit Testing with Cypress.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-    <br />
+<br />
     
     
 ### Built With
