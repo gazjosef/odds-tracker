@@ -57,9 +57,13 @@ Compare bookmakers to find the best odds.
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-An app to find the best Spread, Total or Money line odds between Australian sports bookmakers.
+An app to find the best odds between Australian sports bookmakers.
 
-Landing page displays the next 10 upcoming events. User can select Sport and League to query API for prices.
+Highest money, spread or total odds is calculated and displayed.
+
+Landing page displays the next 10 upcoming events. 
+
+The User can select Sport and League to query API for odds.
 
 The design is styled with SASS and the app is written in JavaScript.
 
