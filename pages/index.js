@@ -17,8 +17,8 @@ export default function Home() {
   const apiKey = process.env.NEXT_PUBLIC_ODDS_API_KEY;
   const sportKey = "upcoming"; // use the sport_key from the /sports endpoint below, or use 'upcoming' to see the next 8 games across all sports
   const regions = "au"; // uk | us | eu | au.
-  // const markets = "h2h,spreads,totals"; // h2h | spreads | totals.
-  const markets = "h2h"; // h2h | spreads | totals.
+  const markets = "h2h,spreads,totals"; // h2h | spreads | totals.
+  // const markets = "h2h"; // h2h | spreads | totals.
   const oddsFormat = "decimal"; // decimal | american
   const dateFormat = "iso"; // iso | unix
 
