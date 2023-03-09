@@ -1,17 +1,15 @@
 import { useState, useEffect } from "react";
-
-import Event from "@/components/Events/Event";
-import upcomingMarkets from "@/data/upcomingMarkets.json";
 import Searchbar from "@/components/Searchbar/Searchbar";
+import Event from "@/components/Events/Event";
 
 export default function Home() {
-  const [events, setEvents] = useState(upcomingMarkets);
+  const [events, setEvents] = useState();
   const [upcoming, setUpcoming] = useState();
   const [sports, setSports] = useState([]);
+  const [title, setTitle] = useState("Upcoming Events");
   // Select Sports & League
   const [sport, selectSport] = useState([]);
   const [league, selectLeague] = useState();
-  const [title, setTitle] = useState("Upcoming Events");
 
   const axios = require("axios");
   const apiKey = process.env.NEXT_PUBLIC_ODDS_API_KEY;

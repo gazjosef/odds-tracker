@@ -19,6 +19,7 @@ function Searchbar({
   const handleLeagueChange = (e) => {
     selectLeague(e.target.value);
   };
+
   return (
     <section className="search-bar2">
       <select
