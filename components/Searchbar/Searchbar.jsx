@@ -23,7 +23,7 @@ function Searchbar({
   return (
     <section className="search-bar2">
       <select
-        className="form-select"
+        className="select"
         aria-label="Default select example"
         onChange={handleSportChange}
       >
@@ -31,7 +31,7 @@ function Searchbar({
         {displaySports}
       </select>
       <select
-        className="form-select"
+        className="select"
         aria-label="Default select example"
         onChange={handleLeagueChange}
       >

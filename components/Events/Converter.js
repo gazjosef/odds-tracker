@@ -1,15 +1,16 @@
-import Bet365 from "@/svg/bet365.svg";
-import Betfair from "@/svg/betfair.svg";
-import Betstar from "@/svg/betstar.svg";
-import Bluebet from "@/svg/bluebet.svg";
-import Bookmaker from "@/svg/bookmaker.svg";
-import Ladbrokes from "@/svg/ladbrokes.svg";
-import Neds from "@/svg/neds.svg";
-import Pointsbetau from "@/svg/pointsbetau.svg";
-import Sportsbet from "@/svg/sportsbet.svg";
-import Sportsbetting from "@/svg/sportsbetting.svg";
-import Tab from "@/svg/tab.svg";
-import Unibet from "@/svg/unibet.svg";
+import Bet365 from "../../public/svg/bet365.svg";
+
+import Betfair from "../../public/svg/betfair.svg";
+import Betstar from "../../public/svg/betstar.svg";
+import Bluebet from "../../public/svg/bluebet.svg";
+import Bookmaker from "../../public/svg/bookmaker.svg";
+import Ladbrokes from "../../public/svg/ladbrokes.svg";
+import Neds from "../../public/svg/neds.svg";
+import Pointsbetau from "../../public/svg/pointsbetau.svg";
+import Sportsbet from "../../public/svg/sportsbet.svg";
+import Sportsbetting from "../../public/svg/sportsbetting.svg";
+import Tab from "../../public/svg/tab.svg";
+import Unibet from "../../public/svg/unibet.svg";
 
 //* CONVERT FROM ISO TO DATE
 

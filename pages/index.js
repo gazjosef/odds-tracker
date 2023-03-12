@@ -141,7 +141,6 @@ export default function Home() {
     <main className="container">
       <article className="article-display-odds">
         <section className="article-display-odds__title">
-          <h1>{title}</h1>
           <Searchbar
             data={upcoming}
             sport={sport}
@@ -151,6 +150,7 @@ export default function Home() {
             selectLeague={selectLeague}
             setTitle={setTitle}
           />
+          <h1>{title}</h1>
         </section>
         <section className="article-display-odds__events">
           <Event events={events} />
